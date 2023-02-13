@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
+#    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 15:06:19 by dgross            #+#    #+#              #
-#    Updated: 2023/02/13 18:56:52 by dna              ###   ########.fr        #
+#    Updated: 2023/02/11 15:33:50 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ				= $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
