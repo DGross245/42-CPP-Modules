@@ -6,13 +6,16 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 15:06:19 by dgross            #+#    #+#              #
-#    Updated: 2023/02/11 15:33:50 by dgross           ###   ########.fr        #
+#    Updated: 2023/02/14 11:00:30 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= megaphone
+NAME			= phonebook
 
-SRC				= megaphone.cpp
+SRC				= PhoneBook.cpp\
+				  main.cpp
+
+HEADER			= PhoneBook.hpp
 
 OBJ_DIR			= ./obj/
 
