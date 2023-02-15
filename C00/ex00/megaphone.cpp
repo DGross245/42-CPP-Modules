@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:34:03 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/13 19:04:52 by dna              ###   ########.fr       */
+/*   Updated: 2023/02/14 08:37:27 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
-#include <string>
 
 int main(int argc, char **argv)
 {
