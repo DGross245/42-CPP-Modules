@@ -6,13 +6,16 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 15:06:19 by dgross            #+#    #+#              #
-#    Updated: 2023/02/11 15:33:50 by dgross           ###   ########.fr        #
+#    Updated: 2023/02/15 10:10:14 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= megaphone
+NAME			= Account
 
-SRC				= megaphone.cpp
+SRC				= Account.cpp\
+				  tests.cpp
+
+HEADER			= Account.hpp
 
 OBJ_DIR			= ./obj/
 
@@ -27,8 +30,8 @@ all: $(NAME)
 obj:
 	@mkdir -p $(OBJ_DIR)
 
-obj/%.o: %.cpp obj
-	@$(CC) $(CFLAGS) -c $< -o $@
+obj/%.o: %.cpp obj $(HEADER)
+	@$(CC) $(CFLAGS) -I./$(HEADER) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
