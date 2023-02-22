@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 09:55:12 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/22 09:56:06 by dgross           ###   ########.fr       */
+/*   Created: 2023/02/20 13:47:10 by dgross            #+#    #+#             */
+/*   Updated: 2023/02/20 17:00:44 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef WEAPON_H
+# define WEAPON_H
 
-int main( void ) 
-{
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+# include <string>
+
+class Weapon {
+
+public:
+	void setType( std::string typ);
+	std::string const &getType( void );
+	Weapon( std::string club );
+	~Weapon( void );
+private:
+	std::string typ;
+};
+
+#endif
