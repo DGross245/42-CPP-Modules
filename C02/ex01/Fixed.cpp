@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:02:22 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/22 16:34:22 by dgross           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:10:06 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 const int	Fixed::Bits = 8;
 
 Fixed::Fixed( int const Integer) {
-	this->Nbr = Integer >> Bits;
+	this->Nbr = Integer << Bits;
+	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( float const Float) {
-	int integer;
-
-	integer = Float * (1 << Bits);
 	this->Nbr = roundf( Float * (1 << Bits));
+	std::cout << "Float constructor called" << std::endl;
 	return ;
 }
 
@@ -34,22 +33,25 @@ std::ostream &operator<<( std::ostream &output, Fixed const &obj) {
 }
 
 Fixed::Fixed( const Fixed &instance ) {
-	this->Nbr = instance.Nbr;
+	std::cout << "Copy constructor called" << std::endl;
+	*this = instance;
 	return ;	
 }
 
 Fixed::Fixed( void ) {
 	this->Nbr = 0;
+	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 Fixed::~Fixed( void ) {
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
 float Fixed::toFloat( void ) const{
 	float Float;
 
-	Float = this->Nbr / (1 << Bits);
+	Float = roundf(this->Nbr) / (1 << Bits);
 	return (Float);
 }
 
@@ -62,6 +64,7 @@ int	Fixed::toInt( void ) const{
 
 Fixed	&Fixed::operator=(Fixed const &obj) {
 	this->Nbr = obj.Nbr;
+	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 
