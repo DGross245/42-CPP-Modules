@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/25 13:35:54 by dgross           ###   ########.fr       */
+/*   Updated: 2023/02/28 05:50:41 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define SCAVTRAP_H
 
 #include <string>
+#include "ClapTrap.hpp"
 
-class ScavTrap {
+class ScavTrap : public ClapTrap {
 
 public:
 

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/25 11:14:47 by dgross           ###   ########.fr       */
+/*   Updated: 2023/02/28 06:08:05 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,50 +64,7 @@ void ScavTrap::attack( std::string const &target ) {
 	}
 	return ;
 }
-void ScavTrap::attack( std::string const &target ) {
-	if (this->Hit_points == 0)
-		return ;
-	else if (this->Energy_points == 0)
-	{
-		std::cout << "ScavTrap " << this->Name << " has no Energy to attack " << target << " !" << std::endl;
-		return ;
-	}
-	else
-	{
-		this->Energy_points -= 1;
-		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << " , causing " << this->Attack_dmg << " points of damage!" << std::endl;
-	}
-	return ;
-}
 
-void ScavTrap::takeDamage( unsigned int amount ) {
-	if (this->Hit_points == 0)
-	{
-		std::cout << "ScavTrap " << this->Name <<  " is already dead!" << std::endl;
-		return ;
-	}
-	std::cout << "ScavTrap " << this->Name <<  " takes " << amount << " points of damage!" << std::endl;
-	this->Hit_points -= amount;
-	if (this->Hit_points == 0)
-		std::cout << "ScavTrap " << this->Name <<  " died!" << std::endl;
-	return ;
-}
-
-void ScavTrap::beRepaired( unsigned int amount ) {
-	if (this->Hit_points == 0)
-		return ;
-	else if (this->Energy_points == 0)
-	{
-		std::cout << "ScavTrap " << this->Name << " has no Energy to repair itself!" << std::endl;
-		return ;
-	}
-	else
-	{
-		std::cout << "ScavTrap " << this->Name <<  " raipares it self by +" << amount << " Hit points!" << std::endl;
-		this->Hit_points += amount;
-	}
-	return ;
-}
 void ScavTrap::takeDamage( unsigned int amount ) {
 	if (this->Hit_points == 0)
 	{
