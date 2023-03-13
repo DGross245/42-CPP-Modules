@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   GradeTooLowException.hpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 13:46:56 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/13 16:50:38 by dgross           ###   ########.fr       */
+/*   Created: 2023/03/13 09:31:15 by dgross            #+#    #+#             */
+/*   Updated: 2023/03/13 16:29:31 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef GRADETOOLOWEXCEPTION_H
+# define GRADETOOLOWEXCEPTION_H
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
+# include "Bureaucrat.hpp"
 
-void HumanA::attack( void ) {
-	std::cout << this->_name << " attacks with their " << this->_objekt.getType() << std::endl;
-	return ;
-}
+class GradeTooLowException : public Bureaucrat {
 
-HumanA::HumanA( std::string name, Weapon &weapon) :_objekt(weapon) {
-	this->_name = name;
-	return ;
-}
+public:
+	GradeTooLowException( void );
+	~GradeTooLowException( void );
+private:
 
-HumanA::~HumanA( void ) {
-	return ;
-}
+};
+
+#endif 

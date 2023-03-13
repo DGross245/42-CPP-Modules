@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   GradeTooHighException.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 13:46:56 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/13 16:50:38 by dgross           ###   ########.fr       */
+/*   Created: 2023/03/13 09:30:29 by dgross            #+#    #+#             */
+/*   Updated: 2023/03/13 14:27:15 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "GradeTooHighException.hpp"
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
-
-void HumanA::attack( void ) {
-	std::cout << this->_name << " attacks with their " << this->_objekt.getType() << std::endl;
+GradeTooHighException::GradeTooHighException( void ) {
 	return ;
 }
 
-HumanA::HumanA( std::string name, Weapon &weapon) :_objekt(weapon) {
-	this->_name = name;
-	return ;
-}
-
-HumanA::~HumanA( void ) {
+GradeTooHighException::~GradeTooHighException( void ) {
 	return ;
 }
