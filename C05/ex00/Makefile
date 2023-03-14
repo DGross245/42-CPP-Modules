@@ -6,22 +6,16 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:28:25 by dgross            #+#    #+#              #
-#    Updated: 2023/03/13 14:26:47 by dgross           ###   ########.fr        #
+#    Updated: 2023/03/14 09:09:12 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= Bureaucrat
 
-VPATH			= include:
-
 SRC				= Bureaucrat.cpp\
-				  GradeTooHighException.cpp\
-				  GradeTooLowException.cpp\
 				  main.cpp
 
-HEADER			= Bureaucrat.hpp \
-				  GradeTooHighException.hpp \
-				  GradeTooLowException.hpp
+HEADER			= Bureaucrat.hpp
 
 OBJ_DIR			= ./obj/
 
@@ -36,10 +30,10 @@ all: $(NAME)
 obj:
 	@mkdir -p $(OBJ_DIR)
 
-obj/%.o: %.cpp
-	@$(CC) $(CFLAGS) -I./includes -c $< -o $@
+obj/%.o: %.cpp obj $(HEADER)
+	@$(CC) $(CFLAGS) -I./$(HEADER) -c $< -o $@
 
-$(NAME): obj $(OBJ)
+$(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean:
