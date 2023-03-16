@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/14 13:34:30 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/15 09:53:12 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ public:
 	class GradeTooLowException : public std::exception {
 	public:
 		GradeTooLowException( void );
-		GradeTooLowException( int number );
 		~GradeTooLowException( void ) throw();
+		virtual const char* what() const throw();
 	};
 
 	class GradeTooHighException : public std::exception {
 	public:
 		GradeTooHighException( void );
-		GradeTooHighException( int number );
 		~GradeTooHighException( void ) throw();
+		virtual const char* what() const throw();
 	};
 
 private:

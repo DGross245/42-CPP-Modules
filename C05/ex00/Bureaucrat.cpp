@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/14 13:34:21 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/15 10:09:54 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat( void ) {
+Bureaucrat::Bureaucrat( void ) : Name("test"), Grade(5) {
 	return ;	
 }
 
-Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag), Grade(nbr) {
-	if (Grade < 1)
-		throw Bureaucrat::GradeTooLowException( nbr );
-	else if (Grade > 150)
-		throw Bureaucrat::GradeTooHighException( nbr );
+Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag) {
+	if (nbr < 1)
+		throw Bureaucrat::GradeTooLowException();
+	else if (nbr > 150)
+		throw Bureaucrat::GradeTooHighException();
+	this->Grade = nbr;
 	return ;	
 }
 
@@ -43,14 +44,14 @@ int Bureaucrat::getGrade( void ) {
 void Bureaucrat::Increment( void ) {
 	this->Grade--;
 	if (this->Grade < 1)
-		;
+		throw Bureaucrat::GradeTooHighException();
 	return ;
 }
 
 void Bureaucrat::Decrement( void ) {
 	this->Grade++;
 	if (this->Grade > 150)
-		;
+		throw Bureaucrat::GradeTooLowException();
 	return ;
 }
 	
@@ -76,20 +77,18 @@ Bureaucrat::GradeTooHighException::GradeTooHighException( void ) {
 	return ;	
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException( int number ) {
-	std::cout << "The Grade " << number << " is to low !" << std::endl;
+Bureaucrat::GradeTooHighException::~GradeTooHighException( void ) throw() {
 	return ;	
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException( int number ) {
-	std::cout << "The Grade " << number << " is to high !" << std::endl;
+Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw() {
 	return ;	
 }
 
-Bureaucrat::GradeTooHighException::~GradeTooHighException( void ) throw(){
-	return ;	
+const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
+	return ("The Grade is too low !");
 }
 
-Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw(){
-	return ;	
+const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
+	return ("The Grade is too high !");
 }

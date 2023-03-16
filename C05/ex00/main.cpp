@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/14 13:37:09 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/15 10:07:04 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main(void)
 {
 	std::cout << "\033[1;32m** Constructing b **\033[0m" << std::endl;
-	Bureaucrat *b = new Bureaucrat( "kek", 7);
+	Bureaucrat *b = new Bureaucrat();
 	std::cout << "\033[1;32m** Testing b **\033[0m" << std::endl;
 	std::cout << b;
 	try
@@ -26,7 +26,7 @@ int main(void)
 	}
 	catch(Bureaucrat::GradeTooHighException& e)
 	{
-		std::cout << "catched high" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << b;
 	try
@@ -35,7 +35,7 @@ int main(void)
 	}
 	catch(Bureaucrat::GradeTooLowException& e)
 	{
-		std::cout << "catched low" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << b;
 	try
@@ -45,7 +45,7 @@ int main(void)
 	}
 	catch(Bureaucrat::GradeTooLowException& e)
 	{
-		std::cout << "catched low" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << b;
 	std::cout << "\033[1;32m** Deconstructing b **\033[0m" << std::endl;
