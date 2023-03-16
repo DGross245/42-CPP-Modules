@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 10:47:15 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/16 13:56:43 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define BUREAUCRAT_H
 
 # include <string>
-	
+
+class Form;
+
 class Bureaucrat {
 
 public:
@@ -27,6 +29,7 @@ public:
 	int getGrade( void );
 	void Increment( void );
 	void Decrement( void );
+	void signForm( Form &obj);
 
 	class GradeTooLowException : public std::exception {
 	public:

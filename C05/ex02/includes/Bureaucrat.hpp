@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 11:11:29 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 14:45:40 by dgross           ###   ########.fr       */
+/*   Created: 2023/03/16 15:01:43 by dgross            #+#    #+#             */
+/*   Updated: 2023/03/16 16:17:36 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef BUREAUCRAT_H
+# define BUREAUCRAT_H
 
 # include <string>
-# include <iostream>
 
-class Bureaucrat;
+class Form;
 
-class Form {
+class Bureaucrat {
 
 public:
-	Form( void );
-	~Form( void );
-	Form( const Form &obj);
-	Form( std::string Name, int const GradeSign, int const GradeExec );
-	Form &operator=( Form const &obj );
-	void beSigned( Bureaucrat &obj);
-	bool getSign( void );
-	int getGradeSign( void );
-	int getGradeExec( void );
+
+	Bureaucrat( void );
+	Bureaucrat( Bureaucrat const &obj);
+	Bureaucrat( const std::string &tag, int nbr);
+	~Bureaucrat( void );
+	Bureaucrat &operator=( Bureaucrat const &obj );
 	std::string getName( void ) const;
+	int getGrade( void );
+	void Increment( void );
+	void Decrement( void );
+	void signForm( Form &obj);
+
 	class GradeTooLowException : public std::exception {
 	public:
 		GradeTooLowException( void );
@@ -44,14 +45,13 @@ public:
 		~GradeTooHighException( void ) throw();
 		virtual const char* what() const throw();
 	};
-	
+
 private:
+
 	std::string const	Name;
-	bool				Sign;
-	int const			GradeSign;
-	int const 			GradeExec;
+	int					Grade;
 };
 
-std::ostream &operator<<( std::ostream &output, Form *obj );
+std::ostream &operator<<( std::ostream &output, Bureaucrat *obj );
 
 #endif

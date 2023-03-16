@@ -6,11 +6,12 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:07 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 10:47:08 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:09:34 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 #include <iostream>
 #include <string>
@@ -65,7 +66,7 @@ Bureaucrat &Bureaucrat::operator=( Bureaucrat const &instance) {
 }
 
 std::ostream &operator<<( std::ostream &output, Bureaucrat *obj ) {
-	output << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+	output << obj->getName() << ", bureaucrat grade " << obj->getGrade() << std::endl;
 	return (output);
 }
 
@@ -91,4 +92,18 @@ const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 	return ("The Grade is too high !");
+}
+
+void	Bureaucrat::signForm( Form &obj ) {
+	if (obj.getSign())
+		std::cout << this->Name << " signed " << obj.getName() << std::endl;
+	else
+	{
+		std::cout << this->Name << " couldn’t sign "<< obj.getName() << " because ";
+		if (this->Grade < 1)
+			std::cout << "the grade was to high" << std::endl;
+		else
+			std::cout << "the grade was to low" << std::endl;
+	}
+	return ;
 }

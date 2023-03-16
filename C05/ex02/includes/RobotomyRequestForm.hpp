@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 15:25:11 by dgross           ###   ########.fr       */
+/*   Created: 2023/03/16 15:01:48 by dgross            #+#    #+#             */
+/*   Updated: 2023/03/16 16:23:48 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef ROBOTOMYREQUESTFORM_H 
+# define ROBOTOMYREQUESTFORM_H
 
-Bureaucrat::Bureaucrat( void ) {
-	return ;
-}
+# include <string>
 
-Bureaucrat::~Bureaucrat( void) {
-	return ;
-}
+class RobotomyRequestForm {
 
-Bureaucrat::Bureaucrat( Bureaucrat const &obj) {
-	return ;
-}
+public:
+	RobotomyRequestForm( void );
+	~RobotomyRequestForm( void );
+	RobotomyRequestForm( RobotomyRequestForm const &obj);
+	RobotomyRequestForm &operator=( RobotomyRequestForm const &obj );
+private:
 
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &obj) {
-	return (*this);
-}
+	std::string const	Name;
+	bool				Sign;
+	int const			GradeSign;
+	int const 			GradeExec;
+
+};
+
+#endif

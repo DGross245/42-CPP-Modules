@@ -1,14 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:57:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 15:01:24 by dgross           ###   ########.fr       */
+/*   Created: 2023/03/16 14:57:00 by dgross            #+#    #+#             */
+/*   Updated: 2023/03/16 15:07:04 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+class ShrubberyCreationForm {
 
+public:
+
+private:
+
+};
