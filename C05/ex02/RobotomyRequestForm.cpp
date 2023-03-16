@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 15:28:16 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/16 22:06:04 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include "AForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : GradeSign(72), GradeExec(45) {
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("RobotomyRequestForm", 72, 45) {
 	return ;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:43 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 16:17:36 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/16 21:59:06 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	~Bureaucrat( void );
 	Bureaucrat &operator=( Bureaucrat const &obj );
 	std::string getName( void ) const;
+	void executeForm(Form const & form);
 	int getGrade( void );
 	void Increment( void );
 	void Decrement( void );

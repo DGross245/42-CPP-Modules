@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:05 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 15:28:31 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/16 22:05:15 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : GradeSign(25), GradeExec(5) {
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("ShrubberyCreationForm", 145, 137) {
 	return ;
 }
 
