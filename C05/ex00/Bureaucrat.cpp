@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/15 10:09:54 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/16 10:46:19 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ Bureaucrat &Bureaucrat::operator=( Bureaucrat const &instance) {
 	return (*this);
 }
 
-std::ostream &operator<<( std::ostream &output, Bureaucrat &obj ) {
-	output << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+std::ostream &operator<<( std::ostream &output, Bureaucrat *obj ) {
+	output << obj->getName() << ", bureaucrat grade " << obj->getGrade() << std::endl;
 	return (output);
 }
 

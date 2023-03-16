@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/15 09:53:12 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/16 10:46:23 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ private:
 	int					Grade;
 };
 
-std::ostream &operator<<( std::ostream &output, Bureaucrat &obj );
+std::ostream &operator<<( std::ostream &output, Bureaucrat *obj );
 
 #endif
