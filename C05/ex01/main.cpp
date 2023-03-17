@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:33:08 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 14:41:43 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/17 13:29:40 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 {
 	std::cout << "\033[1;32m** Constructing Bureaucrats **\033[0m" << std::endl;
 	Bureaucrat *b = new Bureaucrat();
-	Bureaucrat *leo = new Bureaucrat("tim", 20);
+	Bureaucrat *kevin = new Bureaucrat("tim", 20);
 	std::cout << "\033[1;32m** Testing Bureaucrats **\033[0m" << std::endl;
 	std::cout << b;
 	try
@@ -67,7 +67,7 @@ int main(void)
 	try
 	{
 		B.signForm(f1);
-		leo->signForm(f1);
+		kevin->signForm(f1);
 		B.signForm(f2);
 	}
 	catch(Bureaucrat::GradeTooLowException& e)
@@ -77,6 +77,6 @@ int main(void)
 	
 	std::cout << "\033[1;32m** Deconstructing **\033[0m" << std::endl;
 	delete b;
-	delete leo;
+	delete kevin;
 	return 0;
 }
