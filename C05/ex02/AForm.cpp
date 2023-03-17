@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:54 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 19:38:27 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 15:07:22 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ AForm &AForm::operator=( AForm const &instance) {
 }
 
 void AForm::beSigned( Bureaucrat &obj ) {
-	if ( obj.getGrade() < this->getGradeSign())
+	if ( obj.getGrade() > this->getGradeSign())
 		throw AForm::GradeTooLowException();
 	else if ( obj.getGrade() < 0)
 		throw AForm::GradeTooHighException();
@@ -72,7 +72,7 @@ const char* AForm::GradeTooHighException::what( void ) const throw() {
 
 std::ostream &operator<<( std::ostream &output, AForm *obj ) {
 	std::cout << "AForm " << obj->getName();
-	if (obj->getSign())
+	if (obj->getSign() == true)
 		std::cout << " was signed ";
 	else
 		std::cout << " was not signed ";
@@ -80,7 +80,7 @@ std::ostream &operator<<( std::ostream &output, AForm *obj ) {
 	return (output);
 }
 
-bool AForm::getSign( void ) {
+bool AForm::getSign( void ) const{
 	return (this->Sign);
 }
 
@@ -88,10 +88,22 @@ std::string AForm::getName( void ) const{
 	return (this->Name);
 }
 
-int AForm::getGradeExec( void ) {
+int AForm::getGradeExec( void ) const{
 	return (this->GradeExec);
 }
 
 int AForm::getGradeSign( void ) {
 	return (this->GradeSign);
+}
+
+void AForm::execute(Bureaucrat const &executor) const {
+	if (this->Sign == true )
+	{
+		if (this->GradeExec <= executor.getGrade())
+			std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	else
+		std::cout << executor.getName() << " can't execute " << this->getName() << " , because it was not Signed !" << std::endl;
 }

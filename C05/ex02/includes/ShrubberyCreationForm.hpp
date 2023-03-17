@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 21:55:25 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 14:21:46 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_H
-# define SHRUBBYCREATIONFORM_H
+# define SHRUBBERYCREATIONFORM_H
 
 # include <string>
 # include "AForm.hpp"
@@ -23,14 +23,11 @@ public:
 	~ShrubberyCreationForm( void );
 	ShrubberyCreationForm( ShrubberyCreationForm const &obj);
 	ShrubberyCreationForm &operator=( ShrubberyCreationForm const &obj );
-	void ExecAction( void );
+	ShrubberyCreationForm( std::string Target );
+	virtual void execute( Bureaucrat const & executor ) const;
+	std::string	getTarget( void ) const;
 private:
-
-	std::string const	Name;
-	bool				Sign;
-	int const			GradeSign;
-	int const 			GradeExec;
-
+	std::string Target;
 };
 
 #endif

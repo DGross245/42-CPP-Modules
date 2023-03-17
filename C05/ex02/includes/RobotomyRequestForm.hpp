@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:48 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 21:55:36 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 14:24:35 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@ class RobotomyRequestForm : public AForm {
 
 public:
 	RobotomyRequestForm( void );
+	RobotomyRequestForm( std::string Target );
 	~RobotomyRequestForm( void );
 	RobotomyRequestForm( RobotomyRequestForm const &obj);
+	std::string	getTarget( void ) const;
 	RobotomyRequestForm &operator=( RobotomyRequestForm const &obj );
-	void ExecAction( void );
+	virtual void execute( Bureaucrat const & executor ) const;
 private:
-
-	std::string const	Name;
-	bool				Sign;
-	int const			GradeSign;
-	int const 			GradeExec;
-
+	std::string Target;
 };
 
 #endif

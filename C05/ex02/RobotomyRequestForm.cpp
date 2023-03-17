@@ -3,17 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 22:06:04 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 15:00:06 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
 RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("RobotomyRequestForm", 72, 45) {
+	this->Target = "default";
+	return ;
+}
+
+RobotomyRequestForm::RobotomyRequestForm( std::string Target ) : AForm("RobotomyRequestForm", 72, 45) {
+	this->Target = Target;
 	return ;
 }
 
@@ -22,9 +32,35 @@ RobotomyRequestForm::~RobotomyRequestForm( void) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj) {
+	*this = obj;
 	return ;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &obj) {
+	this->Target = obj.getTarget();
 	return (*this);
+}
+
+std::string	RobotomyRequestForm::getTarget( void ) const{
+	return (this->Target);
+}
+
+void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
+	if (this->getGradeExec() >= executor.getGrade())
+	{
+		if (this->getSign() == true)
+		{
+			std::cout << "Drrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr....." << std::endl;
+			std::time_t time = std::time(NULL);
+			if (time % 2 == 0)
+				std::cout << this->getTarget() << " has been robotomized successfully " << std::endl;
+			else
+				std::cout << this->getTarget() << " has failed !";
+		}
+		else
+			std::cout << "Form wasnt signed !" << std::endl;
+	}
+	else
+		throw Bureaucrat::GradeTooLowException();
+	return ;
 }

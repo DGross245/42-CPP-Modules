@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:43 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 09:16:07 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 12:44:23 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	Bureaucrat &operator=( Bureaucrat const &obj );
 	std::string getName( void ) const;
 	void executeForm(AForm const & form);
-	int getGrade( void );
+	int getGrade( void ) const ;
 	void Increment( void );
 	void Decrement( void );
 	void signForm( AForm &obj);

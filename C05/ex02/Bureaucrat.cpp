@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 09:14:39 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 15:11:26 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Bureaucrat::~Bureaucrat( void ) {
 	return ;	
 }
 
-int Bureaucrat::getGrade( void ) {
+int Bureaucrat::getGrade( void ) const {
 	return (this->Grade);
 }
 
@@ -95,7 +95,7 @@ const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 }
 
 void	Bureaucrat::signForm( AForm &obj ) {
-	if (obj.getSign())
+	if (obj.getSign() == true)
 		std::cout << this->Name << " signed " << obj.getName() << std::endl;
 	else
 	{
@@ -104,6 +104,18 @@ void	Bureaucrat::signForm( AForm &obj ) {
 			std::cout << "the grade was to high" << std::endl;
 		else
 			std::cout << "the grade was to low" << std::endl;
+			std::cout << "DEBUGGGGGG = " << this->Grade << "  ," << obj.getGradeSign() << std::endl;
+	}
+	return ;
+}
+
+void Bureaucrat::executeForm( AForm const &form) {
+	if (form.getGradeExec() >= this->Grade)
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	else
+	{
+		std::cout << this->getName() << " could not executed " << form.getName() << " because ";
+		
 	}
 	return ;
 }

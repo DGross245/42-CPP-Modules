@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 21:56:16 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 14:21:37 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@
 # include <string>
 # include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm{
+class PresidentialPardonForm : public AForm {
 
 public:
 	PresidentialPardonForm( void );
+	PresidentialPardonForm( std::string Target );
 	~PresidentialPardonForm( void );
+	std::string	getTarget( void ) const;
 	PresidentialPardonForm( PresidentialPardonForm const &obj);
 	PresidentialPardonForm &operator=( PresidentialPardonForm const &obj );
-	void ExecAction( void );
+	virtual void execute( Bureaucrat const & executor ) const;
 private:
-
-	std::string const	Name;
-	bool				Sign;
-	int const			GradeSign;
-	int const 			GradeExec;
+	std::string Target;
 };
 
 #endif
