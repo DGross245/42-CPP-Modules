@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
+#    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 14:50:52 by dgross            #+#    #+#              #
-#    Updated: 2023/03/16 14:50:54 by dgross           ###   ########.fr        #
+#    Updated: 2023/03/17 09:17:48 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,17 @@ NAME			= Bureaucrat
 VPATH			= include:
 
 SRC				= Bureaucrat.cpp\
-				  Form.cpp\
+				  AForm.cpp \
+				  PresidentialPardonForm.cpp \
+				  RobotomyRequestForm.cpp \
+				  ShrubberyCreationForm.cpp \
 				  main.cpp
 
 HEADER			= Bureaucrat.hpp\
-				  Form.hpp
+				  AForm.hpp \
+				  PresidentialPardonForm.hpp \
+				  RobotomyRequestForm.hpp \
+				  ShrubberyCreationForm.hpp
 
 OBJ_DIR			= ./obj/
 

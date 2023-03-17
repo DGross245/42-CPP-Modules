@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:43 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 21:59:06 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/17 09:16:07 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -27,11 +27,11 @@ public:
 	~Bureaucrat( void );
 	Bureaucrat &operator=( Bureaucrat const &obj );
 	std::string getName( void ) const;
-	void executeForm(Form const & form);
+	void executeForm(AForm const & form);
 	int getGrade( void );
 	void Increment( void );
 	void Decrement( void );
-	void signForm( Form &obj);
+	void signForm( AForm &obj);
 
 	class GradeTooLowException : public std::exception {
 	public:
