@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:09:51 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:14:27 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:45:21 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include <iostream>
-//test#1
+
 
 int main()
 {
@@ -36,16 +36,3 @@ int main()
 	meta->makeSound();
 	return 0;
 }
-////test#2
-
-//int main ( void )
-//{
-//	return (0);
-//}
-
-////test#3
-
-//int main ( void )
-//{
-//	return (0);
-//}

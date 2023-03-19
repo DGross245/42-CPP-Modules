@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:24:51 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:36:38 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ Dog::~Dog( void ) {
 	std::cout << "Dog's destructor called" << std::endl;
 	return ;
 }
+
+void	Dog::makeSound( void ) const{
+	std::cout << "woof!" << std::endl;
+	return ;
+}
+
 Dog &Dog::operator=( Dog const &instance) {
 	this->type = instance.type;
 	std::cout << "Dog's copy assignment operator called" << std::endl;

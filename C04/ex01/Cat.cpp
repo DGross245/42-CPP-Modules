@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:24:43 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 14:44:01 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ Cat::~Cat( void ) {
 	std::cout << "Cat's destructor called" << std::endl;
 	return ;
 }
+
+void	Cat::makeSound( void ) const{
+	std::cout << "Meow!" << std::endl;
+	return ;
+}
+
 Cat &Cat::operator=( Cat const &instance) {
 	this->type = instance.type;
 	std::cout << "Cat's copy assignment operator called" << std::endl;

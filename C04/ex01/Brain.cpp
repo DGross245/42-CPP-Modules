@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:17:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:26:22 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:44:12 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ Brain::~Brain( void ) {
 	std::cout << "Brain's destructor called" << std::endl;
 	return ;
 }
+
 Brain &Brain::operator=( Brain const &instance) {
-	this->ideas = instance.ideas;
 	std::cout << "Brain's copy assignment operator called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = instance.ideas[i];
 	return (*this);
 }

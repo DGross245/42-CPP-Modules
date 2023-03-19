@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:23:19 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:15:04 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 14:41:27 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ WrongCat::WrongCat( const WrongCat &obj ) {
 
 WrongCat::~WrongCat( void ) {
 	std::cout << "WrongCat's destructor called" << std::endl;
+	return ;
+}
+
+void WrongCat::makeSound( void ) const {
+	std::cout << "Doing fake cat sounds !" << std::endl;
 	return ;
 }
 WrongCat &WrongCat::operator=( WrongCat const &instance) {

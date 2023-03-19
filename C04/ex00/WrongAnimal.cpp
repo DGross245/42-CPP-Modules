@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:59:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:15:36 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 14:40:02 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ WrongAnimal &WrongAnimal::operator=( WrongAnimal const &instance) {
 }
 
 void	WrongAnimal::makeSound( void ) const{
-	if (this->type == "Wrong")
-		std::cout << "woof woof ... I mean Meow" << std::endl;
-	else
-		std::cout << "Vroom, vroom, vroom!" << std::endl;
+	std::cout << "woof woof ... I mean Meow" << std::endl;
 	return ;
 }
 

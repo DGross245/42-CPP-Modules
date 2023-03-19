@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:17:44 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 07:04:39 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 14:31:33 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
 	Cat( void );
 	~Cat( void );
 	Cat( const Cat &obj );
+	void makeSound( void ) const;
 	Cat &operator=( Cat const &instance);
 
 private:
