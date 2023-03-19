@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:16:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 15:37:39 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:59:17 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Animal {
 public:
 
 	Animal( void );
-	~Animal( void );
+	virtual ~Animal( void );
 	Animal( const Animal &obj );
 	Animal &operator=( Animal const &instance);
-	virtual void	makeSound( void ) const;
+	virtual void	makeSound( void ) const = 0;
 	std::string	getType( void ) const;
 	
 private:
