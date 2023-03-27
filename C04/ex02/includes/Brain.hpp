@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:17:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 09:20:34 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:33:20 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef BRAIN_H
 # define BRAIN_H
 

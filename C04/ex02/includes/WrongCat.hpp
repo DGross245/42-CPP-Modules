@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:18:08 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 15:37:25 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:33:35 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef WRONGCAT_H
 # define WRONGCAT_H
 

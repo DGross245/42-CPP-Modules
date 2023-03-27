@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:10 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:00:44 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:30:01 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef WEAPON_H
 # define WEAPON_H
 

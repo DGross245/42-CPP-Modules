@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:41 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 14:40:32 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:34:47 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef AFORM_H
 # define AFORM_H
 

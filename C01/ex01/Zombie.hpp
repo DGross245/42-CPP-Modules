@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:34:25 by dna               #+#    #+#             */
-/*   Updated: 2023/02/20 11:01:12 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:29:46 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 

@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:04 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:04:50 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:29:57 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef HUMANB_H
 # define HUMANB_H
 

@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/27 13:36:16 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef WHATEVER_H
 
 # define WHATEVER_H

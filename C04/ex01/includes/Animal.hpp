@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:16:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 14:42:52 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:32:53 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef ANIMAL_H
 # define ANIMAL_H
 

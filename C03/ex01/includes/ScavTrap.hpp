@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/28 05:50:41 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:30:45 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef SCAVTRAP_H
 # define SCAVTRAP_H
 

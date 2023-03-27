@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:52 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 16:16:33 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:34:54 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef INTERN_H
 # define INTERN_H
 

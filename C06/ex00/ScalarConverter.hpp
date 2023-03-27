@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:49 by dna               #+#    #+#             */
-/*   Updated: 2023/03/24 19:25:04 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/27 13:35:21 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef SCALARCONVERTER_H
 # define SCALARCONVERTER_H
 

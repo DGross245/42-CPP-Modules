@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:41:54 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 17:36:56 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/27 13:36:07 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef SERIALIZER_H
 # define SERIALIZER_H
 

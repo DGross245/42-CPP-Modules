@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:24:29 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 11:17:17 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:09:08 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(void)
 
 	while (1)
 	{
+		std::cin.clear();
 		std::cout << "Enter a command : ";
 		std::getline(std::cin, str);
 		if (!str.compare("ADD"))

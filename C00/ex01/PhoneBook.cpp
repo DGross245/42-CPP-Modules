@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:16:59 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 11:02:55 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:12:28 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,26 @@ PhoneBook::~PhoneBook( void ) {
 int	PhoneBook::GetTheLine( int i, int nbr, std::string msg ) {
 	std::string	str;
 
-	std::getline( std::cin, str );
-	if (std::cin.eof())
-		return (1);
-	while (str.empty())
+	while (true)
 	{
-		std::cout << "No space allowed !" << std::endl;
-		std::cout << msg;
-		std::getline( std::cin, str );
-		if (std::cin.eof())
-			return (1);
-	}
-	if ( nbr == 4 )
-	{
-		int j = 0;
-		while (str[j] != '\0')
+		std::cin.clear();
+		if (!std::getline(std::cin, str) || std::cin.eof())
 		{
-			if (isdigit(str[j]))
-				j++;
-			else
-			{
-				std::cout << "Numbers only !" << std::endl;
-				std::cout << msg;
-				std::getline( std::cin, str );
-				if (std::cin.eof())
-					return (1);
-				j = 0;
-			}
+			std::cerr << "Error reading input!" << std::endl;
+			return 1;
 		}
+		else if (str.empty())
+			std::cout << "No space allowed !" << std::endl;
+		else if ( nbr == 4 )
+		{
+			if (std::all_of(str.begin(), str.end(), ::isdigit))
+				break ;
+			else
+				std::cout << "Numbers only !" << std::endl;
+		}
+		else
+			break ;
+		std::cout << msg;
 	}
 	PhoneBook::contact[i].setContact( str, nbr );
 	return (0);

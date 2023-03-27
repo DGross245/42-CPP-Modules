@@ -6,10 +6,11 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 13:56:43 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/27 13:34:20 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
 
