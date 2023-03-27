@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Created: 2023/03/25 14:41:54 by dna               #+#    #+#             */
+/*   Updated: 2023/03/25 17:36:56 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
+#ifndef SERIALIZER_H
+# define SERIALIZER_H
 
-# define WHATEVER_H
+# include <iostream>
+# include "Data.hpp"
 
-template<typename whatever>
-void swap(){
+class Serializer {
+
+public:
+	Serializer( void );
+	Serializer( Serializer const &obj );
+	~Serializer( void );
+	Serializer &operator=( Serializer const &instance);
+	static uintptr_t serialize( Data *ptr );
+	static Data *deserialize( uintptr_t raw );
 	
-}
+private:
 
-template<typename whatever>
-void min(){
-	
-}
-template<typename whatever>
-void max(){
-	
-}
-
+}; 
 
 #endif

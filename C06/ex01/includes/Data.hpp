@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Created: 2023/03/25 17:13:17 by dna               #+#    #+#             */
+/*   Updated: 2023/03/25 17:36:53 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
+#ifndef DATA_H
 
-# define WHATEVER_H
+# define DATA_H
 
-template<typename whatever>
-void swap(){
+# include <string>
+
+class Data {
+
+public:
+
+	Data( void );
+	~Data( void );
+	Data( Data const &obj );
+	Data &operator=( Data const &obj );
+	std::string getInfo( void ) const;
+	Data( std::string input );
 	
-}
+private:
 
-template<typename whatever>
-void min(){
-	
-}
-template<typename whatever>
-void max(){
-	
-}
+	std::string Information;
 
+};
 
 #endif

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Created: 2023/03/25 17:47:21 by dna               #+#    #+#             */
+/*   Updated: 2023/03/25 18:01:20 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
+#ifndef BASE_H
 
-# define WHATEVER_H
+# define BASE_H
 
-template<typename whatever>
-void swap(){
+class Base {
+
+public:
+
+	Base( void );
+	virtual ~Base( void );
+	Base * generate(void);
+	void identify(Base* p);
+	void identify(Base& p);
 	
-}
+private:
 
-template<typename whatever>
-void min(){
-	
-}
-template<typename whatever>
-void max(){
-	
-}
-
+};
 
 #endif

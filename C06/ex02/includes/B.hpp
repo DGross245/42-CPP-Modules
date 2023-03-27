@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Created: 2023/03/25 17:47:19 by dna               #+#    #+#             */
+/*   Updated: 2023/03/25 18:10:42 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
+#ifndef B_H
 
-# define WHATEVER_H
+# define B_H
 
-template<typename whatever>
-void swap(){
-	
-}
+# include "Base.hpp"
 
-template<typename whatever>
-void min(){
-	
-}
-template<typename whatever>
-void max(){
-	
-}
+class B : public Base {
 
+public:
+
+	B( void );
+	~B( void );
+
+private:
+
+};
 
 #endif

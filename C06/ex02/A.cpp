@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 21:28:55 by dna               #+#    #+#             */
-/*   Updated: 2023/03/25 21:38:42 by dna              ###   ########.fr       */
+/*   Created: 2023/03/25 17:58:57 by dna               #+#    #+#             */
+/*   Updated: 2023/03/25 17:59:54 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
+#include "A.hpp"
 
-# define WHATEVER_H
-
-template<typename whatever>
-void swap(){
-	
+A::A( void ) {
+	return ;
 }
 
-template<typename whatever>
-void min(){
-	
+A::~A( void ) {
+	return ;
 }
-template<typename whatever>
-void max(){
-	
-}
-
-
-#endif
