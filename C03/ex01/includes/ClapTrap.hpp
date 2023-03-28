@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:10 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:30:41 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/28 10:28:28 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
 
@@ -19,6 +20,7 @@
 class ClapTrap {
 
 public:
+
 	ClapTrap( void );
 	ClapTrap( std::string Name );
 	ClapTrap( ClapTrap const &obj );

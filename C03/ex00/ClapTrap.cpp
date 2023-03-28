@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 09:53:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/25 10:46:31 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/28 10:18:54 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <iostream>
 
 ClapTrap::ClapTrap( void ) {
-	this->Attack_dmg = 10;
+	this->Name = "default";
+	this->Attack_dmg = 0;
 	this->Hit_points = 10;
 	this->Energy_points = 10;
 	std::cout << "Default constructor called" << std::endl;
@@ -24,6 +25,9 @@ ClapTrap::ClapTrap( void ) {
 
 ClapTrap::ClapTrap( std::string Name ) {
 	this->Name = Name;
+	this->Attack_dmg = 0;
+	this->Hit_points = 10;
+	this->Energy_points = 10;
 	std::cout << "User-defined constructor called" << std::endl;
 	return ;
 }
@@ -50,12 +54,9 @@ ClapTrap &ClapTrap::operator=( ClapTrap const &instance) {
 
 void ClapTrap::attack( std::string const &target ) {
 	if (this->Hit_points == 0)
-		return ;
+		std::cout << "ClapTrap " << this->Name << " has no hit point and cant attack " << target << " !" << std::endl;
 	else if (this->Energy_points == 0)
-	{
 		std::cout << "ClapTrap " << this->Name << " has no Energy to attack " << target << " !" << std::endl;
-		return ;
-	}
 	else
 	{
 		this->Energy_points -= 1;
@@ -72,19 +73,19 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 	}
 	std::cout << "ClapTrap " << this->Name <<  " takes " << amount << " points of damage!" << std::endl;
 	this->Hit_points -= amount;
-	if (this->Hit_points == 0)
+	if (this->Hit_points <= 0)
+	{
 		std::cout << "ClapTrap " << this->Name <<  " died!" << std::endl;
+		this->Hit_points = 0;
+	}
 	return ;
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
 	if (this->Hit_points == 0)
-		return ;
+		std::cout << "ClapTrap " << this->Name << " is dead and cant repair itself!" << std::endl;
 	else if (this->Energy_points == 0)
-	{
 		std::cout << "ClapTrap " << this->Name << " has no Energy to repair itself!" << std::endl;
-		return ;
-	}
 	else
 	{
 		std::cout << "ClapTrap " << this->Name <<  " raipares it self by +" << amount << " Hit points!" << std::endl;
