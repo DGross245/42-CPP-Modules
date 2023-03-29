@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:30:44 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/22 14:00:51 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:44:40 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+#include <iostream>
 
 const int	Fixed::Bits = 8;
 
@@ -20,24 +22,29 @@ void	Fixed::setRawBits( int const raw ) {
 }
 
 int		Fixed::getRawBits( void ) const{
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->Nbr);
 }
 
 Fixed	&Fixed::operator=(Fixed const &obj) {
-	this->Nbr = obj.Nbr;
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->Nbr = obj.getRawBits();
 	return (*this);
 }
 
 Fixed::Fixed( const Fixed &instance ) {
-	this->Nbr = instance.Nbr;
+	std::cout << "Copy constructor called" << std::endl;
+	this->Nbr = instance.getRawBits();
 	return ;	
 }
 
 Fixed::Fixed( void ) {
+	std::cout << "Default constructor called" << std::endl;
 	this->Nbr = 0;
 	return ;	
 }
 
 Fixed::~Fixed( void ) {
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }

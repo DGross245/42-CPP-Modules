@@ -3,31 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:02:22 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/24 10:10:06 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:47:39 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 #include <cmath>
 #include <iostream>
 
 const int	Fixed::Bits = 8;
 
-Fixed::Fixed( int const Integer) {
+Fixed::Fixed( int const Integer ) {
 	this->Nbr = Integer << Bits;
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed( float const Float) {
-	this->Nbr = roundf( Float * (1 << Bits));
+Fixed::Fixed( float const Float ) {
+	this->Nbr = roundf( Float * (1 << Bits) );
 	std::cout << "Float constructor called" << std::endl;
 	return ;
 }
 
-std::ostream &operator<<( std::ostream &output, Fixed const &obj) {
+std::ostream &operator<<( std::ostream &output, Fixed const &obj ) {
 	output << obj.toFloat();
 	return (output);
 }
@@ -51,7 +52,7 @@ Fixed::~Fixed( void ) {
 float Fixed::toFloat( void ) const{
 	float Float;
 
-	Float = roundf(this->Nbr) / (1 << Bits);
+	Float = roundf( this->Nbr ) / (1 << Bits);
 	return (Float);
 }
 
