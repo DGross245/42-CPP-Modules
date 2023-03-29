@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:01 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:06:38 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:20:45 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ HumanB::~HumanB( void ) {
 	return ;
 }
 
-void HumanB::setWeapon( Weapon &club) {
+void HumanB::setWeapon( Weapon &club ) {
 	this->_Weapon = &club;
 	return ;
 }

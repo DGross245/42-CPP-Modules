@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:16:17 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/20 13:38:32 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:06:22 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int main ( void )
 	std::string &stringREF = name;
 
 	std::cout << &name << std::endl;
-	std::cout << &stringPTR << std::endl;
+	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 	
 	std::cout << name << std::endl;
-	std::cout << stringPTR << std::endl;
+	std::cout << *stringPTR << std::endl;
 	std::cout << stringREF << std::endl;
 	return (0);
 }

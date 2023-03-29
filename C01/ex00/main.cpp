@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:29:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/02/15 16:59:09 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 06:58:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int main (void)
 {
-	Zombie *kek;
+	Zombie *test;
 
-	kek = NULL;
-	kek = kek->newZombie( "Kek" );
-	kek->announce();
-	kek->randomChump( "random");
-	delete kek;
+	test = test->newZombie( "test" );
+	test->announce();
+	test->randomChump( "random");
+	delete test;
 	return (0);
 }

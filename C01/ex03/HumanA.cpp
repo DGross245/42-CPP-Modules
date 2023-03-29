@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:46:56 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/13 16:50:38 by dgross           ###   ########.fr       */
+/*   Updated: 2023/03/29 07:17:08 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void HumanA::attack( void ) {
 	return ;
 }
 
-HumanA::HumanA( std::string name, Weapon &weapon) :_objekt(weapon) {
+HumanA::HumanA( std::string name, Weapon &weapon ) :_objekt( weapon ) {
 	this->_name = name;
 	return ;
 }
