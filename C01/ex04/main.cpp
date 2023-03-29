@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:15:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 07:23:31 by dna              ###   ########.fr       */
+/*   Updated: 2023/03/29 10:25:42 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void ReadFile (std::string filename, std::string s1, std::string s2) {
 	std::size_t position;
 
 	inputFile.open( filename, std::fstream::in );
-	outFile.open( filename + ".replace", std::fstream::out );
 	if (inputFile.is_open())
 	{
+		outFile.open( filename + ".replace", std::fstream::out );
 		while(getline( inputFile, line ))
 		{
 			while (line.find( s1 ) != std::string::npos)

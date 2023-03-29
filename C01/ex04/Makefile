@@ -6,11 +6,11 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 13:39:51 by dgross            #+#    #+#              #
-#    Updated: 2023/02/20 17:15:01 by dgross           ###   ########.fr        #
+#    Updated: 2023/03/29 10:24:37 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Human
+NAME			= replacer
 
 VPATH			= include:
 
