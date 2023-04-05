@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:04 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 07:16:39 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/05 10:45:39 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public:
 
 private:
 
-	Weapon *_Weapon;
 	std::string _name;
+	Weapon *_Weapon;
 
 };
 

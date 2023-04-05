@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:01 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 07:20:45 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/05 10:44:59 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void HumanB::attack( void ) {
 	return ;
 }
 
-HumanB::HumanB( std::string name ) {
-	this->_name = name;
+HumanB::HumanB( std::string name ) : _name( name ), _Weapon( NULL ) {
 	return ;
 }
 

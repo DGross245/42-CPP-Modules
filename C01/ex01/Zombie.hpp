@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:34:25 by dna               #+#    #+#             */
-/*   Updated: 2023/03/29 07:11:28 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/05 10:30:51 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 
 	void	announce( void );
 	void	setname( std::string name );
+	Zombie( std::string ZombieName );
 	Zombie( void );
 	~Zombie( void );
 

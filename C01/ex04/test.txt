@@ -1,0 +1,6 @@
+Hello, this is just a test to see if "Hello" is replaced.
+You can also create your own test, but this one should be fine.
+Hello should be replaced with something else you specified in the program.
+HELLO HeLLo HdjsLo should not be replaced.
+Hello Hello.
+Test finished.

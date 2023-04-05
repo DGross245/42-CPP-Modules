@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:47:07 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 07:17:30 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/05 10:51:22 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon( std::string club ) {
-	this->typ = club;
+Weapon::Weapon( std::string club ) : typ( club ) {
 	return ;
 }
 
