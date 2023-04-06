@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:55:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 15:55:19 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/02 16:50:04 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 #include <string>
 
 template<typename inter>
-void Inter(std::string &a, std::string b, inter c) {
-	
+void Inter(inter *array,  std::size_t lenght, void (*pointer)(inter &function)) {
+	int i;
+	for (i = 0; i < lenght; i++)
+		pointer(array[i]);
 }
+
 #endif
