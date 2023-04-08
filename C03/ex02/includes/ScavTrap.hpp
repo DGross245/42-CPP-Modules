@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 09:48:57 by dna               #+#    #+#             */
-/*   Updated: 2023/03/28 12:55:52 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/07 22:04:29 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,15 @@ class ScavTrap : public ClapTrap {
 
 public:
 
-	ScavTrap	&operator=( ScavTrap const &obj );
-	void 	attack( const std::string& target );
-	void 	takeDamage( unsigned int amount );
-	void 	beRepaired( unsigned int amount );
-	void 	guardGate( void );
 	ScavTrap( void );
 	ScavTrap( std::string Name );
 	ScavTrap( ScavTrap const &obj );
-	~ScavTrap( void );
+	virtual ~ScavTrap( void );
+	ScavTrap	&operator=( ScavTrap const &obj );
+	void 	attack( const std::string& target );
+	void 	guardGate( void );
 	
 private:
-
-	std::string Name;
-	int			Hit_points;
-	int			Energy_points;
-	int			Attack_dmg;
 	
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/28 12:59:38 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/07 22:05:57 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) {
+ScavTrap::ScavTrap( void ) : ClapTrap() {
 	this->Name = "ScavDefault";
 	this->Attack_dmg = 20;
 	this->Hit_points = 100;
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap( void ) {
 	return ;
 }
 
-ScavTrap::ScavTrap( std::string Name ) {
+ScavTrap::ScavTrap( std::string Name ) : ClapTrap( Name ) {
 	this->Name = Name;
 	this->Attack_dmg = 20;
 	this->Hit_points = 100;
@@ -34,13 +34,14 @@ ScavTrap::ScavTrap( std::string Name ) {
 	return ;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &obj ) {
+ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap( obj ) {
 	*this = obj;
 	std::cout << "Copy constructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::~ScavTrap( void ) {
+	std::cout << "ScavTrap destructor called" << std::endl;
 	return ;
 }
 
@@ -65,38 +66,6 @@ void ScavTrap::attack( std::string const &target ) {
 	{
 		this->Energy_points -= 1;
 		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << " , causing " << this->Attack_dmg << " points of damage!" << std::endl;
-	}
-	return ;
-}
-
-void ScavTrap::takeDamage( unsigned int amount ) {
-	if (this->Hit_points == 0)
-	{
-		std::cout << "ScavTrap " << this->Name <<  " is already dead!" << std::endl;
-		return ;
-	}
-	std::cout << "ScavTrap " << this->Name <<  " takes " << amount << " points of damage!" << std::endl;
-	this->Hit_points -= amount;
-	if (this->Hit_points <= 0)
-	{
-		std::cout << "ScavTrap " << this->Name <<  " died!" << std::endl;
-		this->Hit_points;
-	}
-	return ;
-}
-
-void ScavTrap::beRepaired( unsigned int amount ) {
-	if (this->Hit_points == 0)
-		return ;
-	else if (this->Energy_points == 0)
-	{
-		std::cout << "ScavTrap " << this->Name << " has no Energy to repair itself!" << std::endl;
-		return ;
-	}
-	else
-	{
-		std::cout << "ScavTrap " << this->Name <<  " raipares it self by +" << amount << " Hit points!" << std::endl;
-		this->Hit_points += amount;
 	}
 	return ;
 }

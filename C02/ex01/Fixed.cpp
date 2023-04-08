@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:02:22 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/29 07:47:39 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/08 10:36:29 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Fixed::~Fixed( void ) {
 float Fixed::toFloat( void ) const{
 	float Float;
 
-	Float = roundf( this->Nbr ) / (1 << Bits);
+	Float = roundf( this->Nbr ) / (float)(1 << Bits);
 	return (Float);
 }
 

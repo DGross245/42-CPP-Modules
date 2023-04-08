@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/28 12:55:58 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:35:14 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,9 @@ public:
 	ScavTrap( void );
 	ScavTrap( std::string Name );
 	ScavTrap( ScavTrap const &obj );
-	~ScavTrap( void );
+	virtual	~ScavTrap( void );
 	
 private:
-
-	std::string Name;
-	int			Hit_points;
-	int			Energy_points;
-	int			Attack_dmg;
 	
 };
 
