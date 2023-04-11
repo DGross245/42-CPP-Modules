@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 14:43:42 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:26:12 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 #include <string>
 
-Animal::Animal( void ) {
-	std::cout << "Animal's default constructor called called" << std::endl;
+Animal::Animal( void ) : type( "Animal" ) {
+	std::cout << "Animal's default constructor called" << std::endl;
 	return ;
 }
 Animal::Animal( const Animal &obj ) {
@@ -35,7 +35,7 @@ Animal &Animal::operator=( Animal const &instance) {
 }
 
 void	Animal::makeSound( void ) const{
-	std::cout << "Doing a sound!" << std::endl;
+	std::cout << this->getType() << ": Doing a Animal sound!" << std::endl;
 	return ;
 }
 std::string Animal::getType( void ) const{

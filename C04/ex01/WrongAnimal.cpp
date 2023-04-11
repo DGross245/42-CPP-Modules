@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:59:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 14:45:21 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:36:35 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 #include <iostream>
 
-WrongAnimal::WrongAnimal( void ) {
-	std::cout << "WrongAnimal's default constructor called called" << std::endl;
+WrongAnimal::WrongAnimal( void ) : type( "WrongAnimal" ) {
+	std::cout << "WrongAnimal's default constructor called" << std::endl;
 	return ;
 }
 WrongAnimal::WrongAnimal( const WrongAnimal &obj ) {
@@ -34,7 +34,7 @@ WrongAnimal &WrongAnimal::operator=( WrongAnimal const &instance) {
 }
 
 void	WrongAnimal::makeSound( void ) const{
-	std::cout << "Doing car sounds" << std::endl;
+	std::cout << this->getType() <<": woof woof ... I mean Meow" << std::endl;
 	return ;
 }
 

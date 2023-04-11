@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/07 22:05:57 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/10 16:07:19 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap( void ) : ClapTrap() {
 	this->Attack_dmg = 20;
 	this->Hit_points = 100;
 	this->Energy_points = 50;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ScavTrap default constructor called" << std::endl;
 	return ;
 }
 
@@ -30,13 +30,13 @@ ScavTrap::ScavTrap( std::string Name ) : ClapTrap( Name ) {
 	this->Attack_dmg = 20;
 	this->Hit_points = 100;
 	this->Energy_points = 50;
-	std::cout << "User-defined constructor called" << std::endl;
+	std::cout << "ScavTrap user-defined constructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap( obj ) {
 	*this = obj;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 	return ;
 }
 
@@ -50,7 +50,7 @@ ScavTrap &ScavTrap::operator=( ScavTrap const &instance) {
 	this->Hit_points = instance.Hit_points;
 	this->Attack_dmg = instance.Attack_dmg;
 	this->Energy_points = instance.Energy_points;
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	return (*this);
 }
 
@@ -65,7 +65,7 @@ void ScavTrap::attack( std::string const &target ) {
 	else
 	{
 		this->Energy_points -= 1;
-		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << " , causing " << this->Attack_dmg << " points of damage!" << std::endl;
+		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << ", causing " << this->Attack_dmg << " points of damage!" << std::endl;
 	}
 	return ;
 }

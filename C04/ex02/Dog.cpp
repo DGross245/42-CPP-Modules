@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 15:36:38 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:53:52 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Dog::Dog( void ) {
 	this->type = "Dog";
 	this->brain = new Brain();
-	std::cout << "Dog's default constructor called called" << std::endl;
+	std::cout << "Dog's default constructor called" << std::endl;
 	return ;
 }
 Dog::Dog( const Dog &obj ) {
@@ -32,7 +32,7 @@ Dog::~Dog( void ) {
 }
 
 void	Dog::makeSound( void ) const{
-	std::cout << "woof!" << std::endl;
+	std::cout << this->getType() << ": woof!" << std::endl;
 	return ;
 }
 

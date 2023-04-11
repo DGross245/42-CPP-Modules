@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:16:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:32:53 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:24:22 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #ifndef ANIMAL_H
 # define ANIMAL_H
 
@@ -21,7 +22,7 @@ class Animal {
 public:
 
 	Animal( void );
-	~Animal( void );
+	virtual ~Animal( void );
 	Animal( const Animal &obj );
 	Animal &operator=( Animal const &instance);
 	virtual void	makeSound( void ) const;

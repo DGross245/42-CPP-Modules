@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:55:51 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/28 10:28:01 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/10 16:07:05 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ClapTrap::attack( std::string const &target ) {
 	else
 	{
 		this->Energy_points -= 1;
-		std::cout << "ClapTrap " << this->Name <<  " attacks " << target << " , causing " << this->Attack_dmg << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->Name <<  " attacks " << target << ", causing " << this->Attack_dmg << " points of damage!" << std::endl;
 	}
 	return ;
 }
@@ -88,7 +88,7 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 		std::cout << "ClapTrap " << this->Name << " has no Energy to repair itself!" << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << this->Name <<  " raipares it self by +" << amount << " Hit points!" << std::endl;
+		std::cout << "ClapTrap " << this->Name <<  " repairs it self by +" << amount << " Hit points!" << std::endl;
 		this->Hit_points += amount;
 	}
 	return ;

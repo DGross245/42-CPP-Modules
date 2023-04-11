@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:23:19 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 14:41:27 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:21:50 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <iostream>
 
 WrongCat::WrongCat( void ) {
-	this->type = "Wrong";
-	std::cout << "WrongCat's default constructor called called" << std::endl;
+	this->type = "WrongCat";
+	std::cout << "WrongCat's default constructor called" << std::endl;
 	return ;
 }
 WrongCat::WrongCat( const WrongCat &obj ) {
@@ -32,7 +32,7 @@ WrongCat::~WrongCat( void ) {
 }
 
 void WrongCat::makeSound( void ) const {
-	std::cout << "Doing fake cat sounds !" << std::endl;
+	std::cout << this->getType() << ":Doing fake cat sounds !" << std::endl;
 	return ;
 }
 WrongCat &WrongCat::operator=( WrongCat const &instance) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/19 14:34:41 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:15:14 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Dog::Dog( void ) {
 	this->type = "Dog";
-	std::cout << "Dog's default constructor called called" << std::endl;
+	std::cout << "Dog's default constructor called" << std::endl;
 	return ;
 }
 Dog::Dog( const Dog &obj ) {
@@ -35,6 +35,6 @@ Dog &Dog::operator=( Dog const &instance) {
 }
 
 void	Dog::makeSound( void ) const{
-	std::cout << "woof!" << std::endl;
+	std::cout << this->getType() << ": woof!" << std::endl;
 	return ;
 }

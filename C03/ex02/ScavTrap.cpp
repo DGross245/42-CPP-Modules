@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:57:14 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/07 22:05:47 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/10 16:07:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void ScavTrap::attack( std::string const &target ) {
 	else
 	{
 		this->Energy_points -= 1;
-		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << " , causing " << this->Attack_dmg << " points of damage!" << std::endl;
+		std::cout << "ScavTrap " << this->Name <<  " attacks " << target << ", causing " << this->Attack_dmg << " points of damage!" << std::endl;
 	}
 	return ;
 }

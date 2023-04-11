@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:17:44 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:32:59 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:30:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #ifndef CAT_H
 # define CAT_H
 
@@ -29,9 +30,7 @@ public:
 
 private:
 
-	class Brain	*brain;
-	
-protected:
+	Brain	*brain;
 
 };
 

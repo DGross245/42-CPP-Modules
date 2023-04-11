@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:17:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:33:03 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:38:48 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #ifndef DOG_H
 # define DOG_H
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal {
 
@@ -28,9 +30,7 @@ public:
 
 private:
 
-	class Brain	*brain;
-
-protected:
+	Brain	*brain;
 
 };
 

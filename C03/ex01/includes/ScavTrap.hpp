@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:18 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/07 21:35:14 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/10 15:54:37 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ public:
 
 	ScavTrap	&operator=( ScavTrap const &obj );
 	void 	attack( const std::string& target );
-	void 	takeDamage( unsigned int amount );
-	void 	beRepaired( unsigned int amount );
 	void 	guardGate( void );
 	ScavTrap( void );
 	ScavTrap( std::string Name );

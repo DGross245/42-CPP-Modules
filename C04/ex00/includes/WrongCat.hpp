@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:18:08 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:32:46 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/10 16:34:12 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ public:
 	WrongCat &operator=( WrongCat const &instance);
 
 private:
-
-protected:
 
 };
 
