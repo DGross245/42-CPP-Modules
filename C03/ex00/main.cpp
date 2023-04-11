@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 09:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/28 13:04:01 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:42:07 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main( void )
 	int i = -1;
 
 	Killer9000.attack( "Default" );
-	Default.takeDamage( 5 );
+	Default.takeDamage( 500 );
 	Default.attack( "Killer9000" );
 	Killer9000.takeDamage( 5 );
 	Default.beRepaired( 10 );
