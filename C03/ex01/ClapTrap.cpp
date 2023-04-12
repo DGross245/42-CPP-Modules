@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:55:51 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/11 16:41:41 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:51:06 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 	}
 	std::cout << "ClapTrap " << this->Name <<  " takes " << amount << " points of damage!" << std::endl;
 	if (amount > this->Hit_points)
-		this->Hit_points -= this->Hit_points;
+		this->Hit_points = 0;
 	else
 		this->Hit_points -= amount;
 	if (this->Hit_points <= 0)
@@ -85,6 +85,16 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
+	long long test = amount;
+	test += this->Hit_points;
+	if (test > 4294967295)
+	{
+		unsigned int i = 4294967295 - this->Hit_points;
+		std::cout << "ClapTrap " << this->Name <<  " repairs it self by +" << i << " Hit points!" << std::endl;
+		this->Hit_points = 4294967295;
+		std::cout << "ClapTrap " << this->Name << " has max health!" << std::endl; 
+		return ;	
+	}
 	if (this->Hit_points == 0)
 		std::cout << "ClapTrap " << this->Name << " is dead and cant repair itself!" << std::endl;
 	else if (this->Energy_points == 0)

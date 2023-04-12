@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:52:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 15:55:38 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/12 17:02:35 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main (void)
 {
 	ScavTrap nameless;
 	ScavTrap scav( "Scav" );
+	int i = -1;
 
 	scav.attack( "Something" );
 	scav.beRepaired(10);
@@ -27,9 +28,30 @@ int main (void)
 	nameless.attack ( "something" );
 	nameless.attack ( "a wall" );
 	nameless.beRepaired(10);
-	nameless.beRepaired(15);
+	nameless.beRepaired(10000000);
 	nameless.takeDamage(20);
 	nameless.takeDamage(100);
 	nameless.guardGate();
+
+	std::cout << "\nenergy test!\n" << std::endl;
+
+	ScavTrap NoEnergy( "Bob" );
+	
+	while (++i < 51)
+		NoEnergy.attack( "a Tree" );
+	NoEnergy.beRepaired( 10 );
+	NoEnergy.attack( "door" );
+
+	std::cout << "\nDeath test!\n" << std::endl; 
+	
+	ScavTrap Dead( "clown" );
+
+	Dead.takeDamage( 100 );
+	Dead.takeDamage( 10 );
+	Dead.beRepaired( 10 );
+	Dead.attack( "someone" );
+
+	std::cout << std::endl;
+
 	return (0);
 }

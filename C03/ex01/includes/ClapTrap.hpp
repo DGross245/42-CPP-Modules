@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:57:10 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/07 22:04:51 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/12 16:58:01 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ public:
 	
 protected:
 
-	std::string Name;
-	int			Hit_points;
-	int			Energy_points;
-	int			Attack_dmg;
+	std::string		Name;
+	unsigned int	Hit_points;
+	unsigned int	Energy_points;
+	unsigned int	Attack_dmg;
 
 private:
 
