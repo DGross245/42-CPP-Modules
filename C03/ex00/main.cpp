@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 09:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/12 16:56:06 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/13 13:08:34 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ int main( void )
 	Default.takeDamage( 5 );
 	Default.beRepaired( 10 );
 
-	std::cout << "\nenergy test!\n" << std::endl;
+	std::cout << "\nEnergy test!\n" << std::endl;
 	
 	ClapTrap NoEnergy( "Bob" );
 	
-	while (++i < 11)
+	while (++i < 10)
 		NoEnergy.attack( "a Tree" );
 	NoEnergy.beRepaired( 10 );
 	NoEnergy.attack( "door" );

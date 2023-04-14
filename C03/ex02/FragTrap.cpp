@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 22:53:09 by dna               #+#    #+#             */
-/*   Updated: 2023/04/07 21:11:15 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/13 12:59:18 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ FragTrap &FragTrap::operator=( FragTrap const &instance) {
 }
 
 void	FragTrap::highFiveGuys( void ) {
-	std::cout << "Highfive" << std::endl;
+	std::cout << "Hey there, let's celebrate with a high five!" << std::endl;
 	return ;
 }

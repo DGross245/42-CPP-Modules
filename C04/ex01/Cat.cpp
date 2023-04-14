@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:32:04 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/13 18:17:01 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat( void ) {
 	std::cout << "Cat's default constructor called" << std::endl;
 	return ;
 }
+
 Cat::Cat( const Cat &obj ) {
 	*this = obj;
 	std::cout << "Cat's copy constructor called" << std::endl;
@@ -28,6 +29,7 @@ Cat::Cat( const Cat &obj ) {
 
 Cat::~Cat( void ) {
 	std::cout << "Cat's destructor called" << std::endl;
+	delete this->brain;
 	return ;
 }
 
@@ -38,6 +40,8 @@ void	Cat::makeSound( void ) const{
 
 Cat &Cat::operator=( Cat const &instance) {
 	this->type = instance.type;
+	delete this->brain;
+	this->brain = new Brain(*instance.brain);
 	std::cout << "Cat's copy assignment operator called" << std::endl;
 	return (*this);
 }

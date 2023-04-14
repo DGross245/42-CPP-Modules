@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:33:28 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/13 18:19:06 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Dog::Dog( const Dog &obj ) {
 
 Dog::~Dog( void ) {
 	std::cout << "Dog's destructor called" << std::endl;
+	delete this->brain;
 	return ;
 }
 
@@ -38,6 +39,8 @@ void	Dog::makeSound( void ) const{
 
 Dog &Dog::operator=( Dog const &instance) {
 	this->type = instance.type;
+	delete this->brain;
+	this->brain = new Brain(*instance.brain);
 	std::cout << "Dog's copy assignment operator called" << std::endl;
 	return (*this);
 }

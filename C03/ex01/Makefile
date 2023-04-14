@@ -6,11 +6,11 @@
 #    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 09:53:12 by dgross            #+#    #+#              #
-#    Updated: 2023/02/25 11:06:05 by dgross           ###   ########.fr        #
+#    Updated: 2023/04/13 12:55:12 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= ClapTrap
+NAME			= ScavTrap
 
 VPATH			= include:
 
