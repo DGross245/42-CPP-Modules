@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:07 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 14:09:34 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 11:55:16 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Bureaucrat::Bureaucrat( void ) : Name("test"), Grade(5) {
 
 Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag) {
 	if (nbr < 1)
-		throw Bureaucrat::GradeTooLowException();
-	else if (nbr > 150)
 		throw Bureaucrat::GradeTooHighException();
+	else if (nbr > 150)
+		throw Bureaucrat::GradeTooLowException();
 	this->Grade = nbr;
 	return ;	
 }
@@ -43,16 +43,16 @@ int Bureaucrat::getGrade( void ) {
 }
 
 void Bureaucrat::Increment( void ) {
-	this->Grade--;
-	if (this->Grade < 1)
+	if (this->Grade <= 1)
 		throw Bureaucrat::GradeTooHighException();
+	this->Grade--;
 	return ;
 }
 
 void Bureaucrat::Decrement( void ) {
-	this->Grade++;
-	if (this->Grade > 150)
+	if (this->Grade >= 150)
 		throw Bureaucrat::GradeTooLowException();
+	this->Grade++;
 	return ;
 }
 	
@@ -100,10 +100,7 @@ void	Bureaucrat::signForm( Form &obj ) {
 	else
 	{
 		std::cout << this->Name << " couldn’t sign "<< obj.getName() << " because ";
-		if (this->Grade < 1)
-			std::cout << "the grade was to high" << std::endl;
-		else
-			std::cout << "the grade was to low" << std::endl;
+		std::cout << "the grade was to low" << std::endl;
 	}
 	return ;
 }

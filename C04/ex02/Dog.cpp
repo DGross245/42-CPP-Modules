@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:53:52 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 10:37:29 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,22 @@ Dog &Dog::operator=( Dog const &instance) {
 	this->type = instance.type;
 	std::cout << "Dog's copy assignment operator called" << std::endl;
 	return (*this);
+}
+
+void Dog::setBrain( unsigned int i, std::string thoughts ) {
+	this->brain->setIdeas(i, thoughts);
+	return ;
+}
+
+void Dog::printBrain( void ) {
+	for (int i = 0; i < 100; i++) {  
+		if (this->brain->getIdeas(i) == "BLANK")
+			;
+		else
+		{
+			std::cout << "Idea : " << this->brain->getIdeas(i) << std::endl;
+			std::cout << "Address : " << this->brain->getAddress(i) << std::endl;
+		}
+	}
+	return ;
 }

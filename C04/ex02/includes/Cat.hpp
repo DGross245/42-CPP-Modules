@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:17:44 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:52:14 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 01:10:32 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ public:
 	Cat( const Cat &obj );
 	Cat &operator=( Cat const &instance);
 	void	makeSound( void ) const;
+	void setBrain(unsigned int i, std::string thoughts);
+	void printBrain( void );
 
 private:
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:54 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 15:07:22 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 11:56:30 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ AForm &AForm::operator=( AForm const &instance) {
 void AForm::beSigned( Bureaucrat &obj ) {
 	if ( obj.getGrade() > this->getGradeSign())
 		throw AForm::GradeTooLowException();
-	else if ( obj.getGrade() < 0)
-		throw AForm::GradeTooHighException();
 	this->Sign = true;
 	return ;
 }

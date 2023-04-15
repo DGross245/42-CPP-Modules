@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:17:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:55:32 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 01:09:35 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,26 @@ Brain &Brain::operator=( Brain const &instance) {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = instance.ideas[i];
 	return (*this);
+}
+
+void Brain::setIdeas( unsigned int i, std::string thoughts ) {
+	if (i < 100)
+		this->ideas[i] = thoughts;
+	else
+		std::cout << "its brain cant hold this thought" << std::endl;
+	return ;
+}
+
+std::string Brain::getIdeas( unsigned int i ) {
+	if (!this->ideas[i].empty())
+		return(this->ideas[i]);
+	else
+		return ("BLANK");
+}
+
+std::string *Brain::getAddress( unsigned int i ) {
+	if (!this->ideas[i].empty())
+		return(&this->ideas[i]);
+	else
+		return (NULL);
 }

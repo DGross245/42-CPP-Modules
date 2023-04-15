@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:53:31 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 01:11:03 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,26 @@ void	Cat::makeSound( void ) const{
 
 Cat &Cat::operator=( Cat const &instance) {
 	this->type = instance.type;
+	delete this->brain;
+	this->brain = new Brain(*instance.brain);
 	std::cout << "Cat's copy assignment operator called" << std::endl;
 	return (*this);
+}
+
+void Cat::setBrain( unsigned int i, std::string thoughts ) {
+	this->brain->setIdeas(i, thoughts);
+	return ;
+}
+
+void Cat::printBrain( void ) {
+	for (int i = 0; i < 100; i++) {  
+		if (this->brain->getIdeas(i) == "BLANK")
+			;
+		else
+		{
+			std::cout << "Idea : " << this->brain->getIdeas(i) << std::endl;
+			std::cout << "Address : " << this->brain->getAddress(i) << std::endl;
+		}
+	}
+	return ;
 }

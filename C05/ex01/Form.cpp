@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:31:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 15:05:52 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 11:30:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Form::Form( void ) : Name("Test"), Sign(false), GradeSign(8), GradeExec(9) {
+Form::Form( void ) : Name( "Test" ), Sign( false ), GradeSign( 8 ), GradeExec( 9 ) {
+	if (this->GradeSign < 1 || this->GradeExec < 1)
+		throw Form::GradeTooHighException();
+	else if (this->GradeSign > 150 || this->GradeExec > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
-Form::Form( std::string Name, int const GradeSign, int const GradeExec ) : Name(Name), Sign(false), GradeSign(GradeSign), GradeExec(GradeExec){
+Form::Form( std::string Name, int const GradeSign, int const GradeExec ) : Name(Name), Sign(false), GradeSign(GradeSign), GradeExec(GradeExec) {
+	if (this->GradeSign < 1 || this->GradeExec < 1)
+		throw Form::GradeTooHighException();
+	else if (this->GradeSign > 150 || this->GradeExec > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
@@ -38,10 +46,8 @@ Form &Form::operator=( Form const &instance) {
 }
 
 void Form::beSigned( Bureaucrat &obj ) {
-	if ( obj.getGrade() < this->getGradeSign())
+	if ( obj.getGrade() > this->getGradeSign())
 		throw Form::GradeTooLowException();
-	else if ( obj.getGrade() < 0)
-		throw Form::GradeTooHighException();
 	this->Sign = true;
 	return ;
 }

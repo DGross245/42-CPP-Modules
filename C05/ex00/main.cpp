@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 10:46:35 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 10:51:17 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 int main(void)
 {
-	std::cout << "\033[1;32m** Constructing b **\033[0m" << std::endl;
 	Bureaucrat *b = new Bureaucrat();
-	std::cout << "\033[1;32m** Testing b **\033[0m" << std::endl;
 	std::cout << b;
 	try
 	{
@@ -48,7 +46,18 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << b;
-	std::cout << "\033[1;32m** Deconstructing b **\033[0m" << std::endl;
+	try
+	{
+		while (1)
+			b->Increment();
+	}
+	catch(Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << b;
+
 	delete b;
-	return 0;
+	return (0);
 }

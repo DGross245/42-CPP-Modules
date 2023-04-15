@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:17:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:38:48 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 10:36:38 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ public:
 	Dog( const Dog &obj );
 	void makeSound( void ) const;
 	Dog &operator=( Dog const &instance);
+	void setBrain(unsigned int i, std::string thoughts);
+	void printBrain( void );
 
 private:
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/13 18:17:01 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 00:57:09 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,22 @@ Cat &Cat::operator=( Cat const &instance) {
 	this->brain = new Brain(*instance.brain);
 	std::cout << "Cat's copy assignment operator called" << std::endl;
 	return (*this);
+}
+
+void Cat::setBrain( unsigned int i, std::string thoughts ) {
+	this->brain->setIdeas(i, thoughts);
+	return ;
+}
+
+void Cat::printBrain( void ) {
+	for (int i = 0; i < 100; i++) {  
+		if (this->brain->getIdeas(i) == "BLANK")
+			;
+		else
+		{
+			std::cout << "Idea : " << this->brain->getIdeas(i) << std::endl;
+			std::cout << "Address : " << this->brain->getAddress(i) << std::endl;
+		}
+	}
+	return ;
 }

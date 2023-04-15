@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 10:46:19 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 11:10:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Bureaucrat::Bureaucrat( void ) : Name("test"), Grade(5) {
 
 Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag) {
 	if (nbr < 1)
-		throw Bureaucrat::GradeTooLowException();
-	else if (nbr > 150)
 		throw Bureaucrat::GradeTooHighException();
+	else if (nbr > 150)
+		throw Bureaucrat::GradeTooLowException();
 	this->Grade = nbr;
 	return ;	
 }
@@ -42,16 +42,16 @@ int Bureaucrat::getGrade( void ) {
 }
 
 void Bureaucrat::Increment( void ) {
-	this->Grade--;
-	if (this->Grade < 1)
+	if (this->Grade <= 1)
 		throw Bureaucrat::GradeTooHighException();
+	this->Grade--;
 	return ;
 }
 
 void Bureaucrat::Decrement( void ) {
-	this->Grade++;
-	if (this->Grade > 150)
+	if (this->Grade >= 150)
 		throw Bureaucrat::GradeTooLowException();
+	this->Grade++;
 	return ;
 }
 	

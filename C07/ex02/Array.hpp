@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:54:14 by dna               #+#    #+#             */
-/*   Updated: 2023/04/09 21:37:01 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 12:07:39 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,27 @@ class Array {
 
 public:	
 
-	Array( void ) : array( new T[0] ) {
+	Array( void ) : array( new T[0] ), size(0) {
 		return ;
 	}
-	Array( unsigned int n ) {
-		this->array = new T[n];
+	Array( unsigned int n ) : array( new T[n] ), size(n) {
 		return ;
 	}
-	Array( Array const &obj ) {
-		
+	Array( Array const &obj ) : array(new T[obj.size] ), size(obj.size) {
+		for (unsigned int i = 0; i < size; i++)
+			array[i] = obj.array[i];
 	}
 	~Array() {
+		delete this->array;
 		return ;
 	}
 	Array &operator=( Array const &obj ) {
 		if (this->array == 0)
-			delete
+			delete this->array;
+		this->array = new T[obj.size];
+		this->size = obj.size;
+		for (unsigned int i = 0; i < size; i++)
+			array[i] = obj.array[i];
 		return (*this);
 	}
 
@@ -44,8 +49,9 @@ public:
 private:
 
 	T *array;
-	// std::size_t lenght;
+	unsigned int size;
 
 };
+
 
 #endif
