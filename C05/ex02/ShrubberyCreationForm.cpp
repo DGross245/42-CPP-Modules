@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:05 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 14:44:44 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 19:52:49 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void) {
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &obj) {
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &obj) : AForm(obj) {
 	*this = obj;
 	return ;
 }
@@ -40,12 +40,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 }
 
 void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
-	if (this->getGradeExec() >= executor.getGrade())
+	if (this->getGradeExec() <= executor.getGrade())
 	{
 		if (this->getSign() == true)
 		{
-			std::string		outfileName = Target + "_shrubbery";
-			std::ofstream	outfile(outfileName);
+			std::fstream outfile;
+			std::string outfileName = Target + "_shrubbery";
+			outfile.open( outfileName.c_str(), std::fstream::in );
 			if (outfile.is_open())
 			{
 				outfile << "       _-_       \n"

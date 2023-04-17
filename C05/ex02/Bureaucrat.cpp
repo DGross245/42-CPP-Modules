@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 15:11:26 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 19:40:00 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,7 @@ void	Bureaucrat::signForm( AForm &obj ) {
 	else
 	{
 		std::cout << this->Name << " couldn’t sign "<< obj.getName() << " because ";
-		if (this->Grade < 1)
-			std::cout << "the grade was to high" << std::endl;
-		else
-			std::cout << "the grade was to low" << std::endl;
-			std::cout << "DEBUGGGGGG = " << this->Grade << "  ," << obj.getGradeSign() << std::endl;
+		std::cout << "the grade was to low" << std::endl;
 	}
 	return ;
 }
@@ -115,7 +111,7 @@ void Bureaucrat::executeForm( AForm const &form) {
 	else
 	{
 		std::cout << this->getName() << " could not executed " << form.getName() << " because ";
-		
+		std::cout << "the grade was to low" << std::endl;
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 15:00:06 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 19:43:34 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm( void) {
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &obj) : AForm(obj) {
 	*this = obj;
 	return ;
 }

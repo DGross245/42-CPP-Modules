@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:54 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 11:56:30 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 18:16:43 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,5 @@ void AForm::execute(Bureaucrat const &executor) const {
 	}
 	else
 		std::cout << executor.getName() << " can't execute " << this->getName() << " , because it was not Signed !" << std::endl;
+	return ;
 }

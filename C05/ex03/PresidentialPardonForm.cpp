@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:59 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/17 15:00:48 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/15 19:57:03 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PresidentialPardonForm::~PresidentialPardonForm( void) {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &obj) {
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &obj) : AForm(obj) {
 	*this = obj;
 	return ;
 }
@@ -40,7 +40,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 }
 
 void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
-	if (this->getGradeExec() >= executor.getGrade())
+	if (this->getGradeExec() <= executor.getGrade())
 	{
 		if (this->getSign() == true)
 			std::cout << this->getTarget() << " has been pardoned by Zahod Beebllebrox" << std::endl;
