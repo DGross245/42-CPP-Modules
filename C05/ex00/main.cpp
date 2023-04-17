@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 10:51:17 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/17 17:18:30 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,91 @@
 
 int main(void)
 {
-	Bureaucrat *b = new Bureaucrat();
-	std::cout << b;
-	try
 	{
-	b->Increment();
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << b;
-	try
-	{
-		b->Decrement();
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << b;
-	try
-	{
-		while (1)
-			b->Decrement();
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << b;
-	try
-	{
-		while (1)
-			b->Increment();
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	std::cout << b;
+		Bureaucrat *A = new Bureaucrat();
 
-	delete b;
+		std::cout << A;
+
+		try
+		{
+			std::cout << "\033[33mIncrementing...\033[0m" << std::endl;
+			A->Increment();
+		}
+		catch(Bureaucrat::GradeTooHighException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
+		}
+		std::cout << "\033[32mResult = " << A << "\033[0m" <<std::endl;
+		std::cout << "\n--------------------------------------------\n" << std::endl;
+		std::cout << A;
+
+		try
+		{
+			std::cout << "\033[33mDecrementing...\033[0m" << std::endl;
+			A->Decrement();
+		}
+		catch(Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
+		}
+		std::cout << "\033[32mResult = " << A << "\033[0m" <<std::endl;
+		std::cout << "------------------------------------------" << std::endl;
+		std::cout << "\n\033[34mDecementing til execption (b -> 150)\033[0m" << std::endl;
+		std::cout << "Start = " << A;
+
+		try
+		{
+			while (1)
+			{
+				A->Decrement();
+			}
+		} 
+		catch(Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
+		}
+
+		std::cout << "\n-----------------------------------------------" << std::endl;
+		std::cout << "\n\033[34mIncrementing til execption (b -> 1)\033[0m" << std::endl;
+		std::cout << "Start = " << A;
+
+		try
+		{
+			while (1)
+				A->Increment();
+		}
+		catch(Bureaucrat::GradeTooHighException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
+		}
+		
+		std::cout << "\n----------------------------" << std::endl;
+		std::cout << "End = " << A << std::endl;
+
+		delete A;
+	}
+	{
+		std::cout << "\n-----------------------------------------------\n";
+		std::cout << "\033[34mCreating Kevin with a grade of 151...\033[0m" << std::endl;
+		try
+		{
+			Bureaucrat B("Kevin", 151);
+		}
+		catch(Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
+		}
+		std::cout << "\n-----------------------------------------------\n";
+		std::cout << "\033[34mCreating Kevin with a grade of 0...\033[0m" << std::endl;
+		try
+		{
+			Bureaucrat B("Kevin", 0);
+		}
+		catch(Bureaucrat::GradeTooHighException& e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m\n" << std::endl;
+		}
+		
+	}
 	return (0);
 }

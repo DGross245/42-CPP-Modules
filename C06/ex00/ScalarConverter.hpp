@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:49 by dna               #+#    #+#             */
-/*   Updated: 2023/04/16 16:49:43 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/17 14:43:39 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class ScalarConverter {
 
 public:
 
-	ScalarConverter( void );
 	ScalarConverter( std::string input );
 	~ScalarConverter( void );
 	ScalarConverter( ScalarConverter const &obj );
@@ -32,6 +31,8 @@ public:
 	
 private:
 
+	ScalarConverter( void );
+	
 };
 
 #endif

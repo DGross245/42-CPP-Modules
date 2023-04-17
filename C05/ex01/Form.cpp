@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:31:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 11:30:44 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/17 17:22:39 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Form::Form( void ) : Name( "Test" ), Sign( false ), GradeSign( 8 ), GradeExec( 9 ) {
+Form::Form( void ) : Name( "Default" ), Sign( false ), GradeSign( 8 ), GradeExec( 9 ) {
 	if (this->GradeSign < 1 || this->GradeExec < 1)
 		throw Form::GradeTooHighException();
 	else if (this->GradeSign > 150 || this->GradeExec > 150)

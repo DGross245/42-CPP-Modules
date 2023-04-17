@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:07 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 11:55:16 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/17 14:03:32 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 }
 
 void	Bureaucrat::signForm( Form &obj ) {
+	obj.beSigned(*this);
 	if (obj.getSign())
 		std::cout << this->Name << " signed " << obj.getName() << std::endl;
 	else

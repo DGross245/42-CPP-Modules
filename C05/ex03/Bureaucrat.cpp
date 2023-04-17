@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:57 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 19:55:57 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/17 14:41:10 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 }
 
 void	Bureaucrat::signForm( AForm &obj ) {
+	obj.beSigned(*this);
 	if (obj.getSign() == true)
 		std::cout << this->Name << " signed " << obj.getName() << std::endl;
 	else
@@ -106,6 +107,7 @@ void	Bureaucrat::signForm( AForm &obj ) {
 }
 
 void Bureaucrat::executeForm( AForm const &form) {
+	form.execute(*this);
 	if (form.getGradeExec() >= this->Grade)
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	else
