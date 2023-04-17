@@ -6,7 +6,7 @@
 #    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 16:08:22 by dgross            #+#    #+#              #
-#    Updated: 2023/03/24 13:13:24 by dna              ###   ########.fr        #
+#    Updated: 2023/04/16 17:45:21 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ all: $(NAME)
 obj:
 	@mkdir -p $(OBJ_DIR)
 
-obj/%.o: %.cpp obj $(HEADER)
-	@$(CC) $(CFLAGS) -I./$(HEADER) -c $< -o $@
+obj/%.o: %.cpp $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
+$(NAME): obj $(OBJ)
 	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean:

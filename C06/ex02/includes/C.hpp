@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 17:47:23 by dna               #+#    #+#             */
-/*   Updated: 2023/03/27 13:36:02 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/16 16:50:31 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef C_H
-
 # define C_H
+
 # include "Base.hpp"
 
 class C : public Base {

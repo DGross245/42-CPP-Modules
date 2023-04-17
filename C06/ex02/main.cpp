@@ -6,11 +6,23 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:08:30 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/25 21:17:10 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/16 22:52:39 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main (void)
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include "Base.hpp"
+#include <time.h>
+#include <cstdlib>
+#include <iostream>
+
+int main()
 {
-	return ;
+    Base*   base = generate();
+	identify(base);
+	identify(*base);
+
+    delete base;
 }

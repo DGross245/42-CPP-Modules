@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:54:14 by dna               #+#    #+#             */
-/*   Updated: 2023/04/15 12:07:39 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/16 13:12:40 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,16 @@ public:
 		return (*this);
 	}
 
+	T &operator[]( unsigned int const i ) const {
+		if (i < 0 || i > size - 1)
+			throw std::out_of_range("**** Out of range! ****");
+		return array[i];
+	}
 
 private:
 
 	T *array;
-	unsigned int size;
+	std::size_t size;
 
 };
 

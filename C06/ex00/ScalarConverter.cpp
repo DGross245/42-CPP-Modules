@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:51 by dna               #+#    #+#             */
-/*   Updated: 2023/03/24 20:39:56 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/16 17:44:49 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
+#include <climits>
 
 ScalarConverter::ScalarConverter( void ) {
 	return ;
@@ -48,7 +49,7 @@ void ScalarConverter::toChar( std::string input ) {
         std::cout << "char : impossible" << std::endl;
 		return ;
 	}
-	else if (int_value > std::numeric_limits<int>::max() || int_value < std::numeric_limits<int>::min())
+	else if (int_value > INT_MAX || int_value < INT_MIN)
 		std::cout << "int : impossible"  << std::endl;
 	Character = static_cast<char>(int_value);
 	if (int_value > 127 || int_value < 0)
@@ -66,7 +67,7 @@ void ScalarConverter::toInt( std::string input ) {
 
     if (endptr == input.c_str())
         std::cout << "int : impossible" << std::endl;
-	else if (int_value > std::numeric_limits<int>::max() || int_value < std::numeric_limits<int>::min())
+	else if (int_value > INT_MAX || int_value < INT_MIN)
 		std::cout << "int : impossible"  << std::endl;
 	else
 		std::cout << "int : " << int_value << std::endl;
@@ -84,7 +85,7 @@ void ScalarConverter::toFloat( std::string input ) {
 void ScalarConverter::toDouble( std::string input ) {
 	double	Double;
 
-	Double = std::strtod(input.c_str(), nullptr); 
+	Double = std::strtod(input.c_str(), NULL); 
 	std::cout << "double : " << Double << std::endl;
 	return ;
 }

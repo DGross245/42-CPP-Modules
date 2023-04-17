@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:08:25 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/25 17:43:46 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/16 21:44:00 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main (void)
 {
 	Data *Info_A = new Data( "its just a test!" );
 	Serializer obj;
-	uintptr_t ptr;
+	unsigned long ptr;
 	Data *deserialized;
 
 	ptr = obj.serialize( Info_A );

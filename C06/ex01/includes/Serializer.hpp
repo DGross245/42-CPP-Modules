@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:41:54 by dna               #+#    #+#             */
-/*   Updated: 2023/03/27 13:36:07 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/16 21:44:29 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef SERIALIZER_H
 # define SERIALIZER_H
 
@@ -24,8 +23,8 @@ public:
 	Serializer( Serializer const &obj );
 	~Serializer( void );
 	Serializer &operator=( Serializer const &instance);
-	static uintptr_t serialize( Data *ptr );
-	static Data *deserialize( uintptr_t raw );
+	static unsigned long serialize( Data *ptr );
+	static Data *deserialize( unsigned long raw );
 	
 private:
 
