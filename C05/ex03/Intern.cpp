@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:57:08 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/23 08:52:52 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/23 11:11:54 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,17 @@ Intern &Intern::operator=( Intern const &obj ) {
 }
 
 AForm *Intern::allocPardonForm( std::string Target ) {
+	std::cout << "Intern creates PresidentialPardonForm!" << std::endl;
 	return (new PresidentialPardonForm( Target ));
 }
 
 AForm *Intern::allocCreationForm( std::string Target ) {
+	std::cout << "Intern creates ShrubberyCreationForm!" << std::endl;
 	return (new ShrubberyCreationForm( Target ));
 }
 
 AForm *Intern::allocRequestForm( std::string Target ) {
+	std::cout << "Intern creates RobotomyRequestForm!" << std::endl;
 	return (new RobotomyRequestForm( Target ));
 }
 

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:47 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/16 10:46:23 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/23 10:40:11 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ private:
 };
 
 std::ostream &operator<<( std::ostream &output, Bureaucrat *obj );
+std::ostream &operator<<( std::ostream &output, Bureaucrat &obj );
 
 #endif
