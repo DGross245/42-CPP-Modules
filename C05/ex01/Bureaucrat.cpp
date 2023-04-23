@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:31:07 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/17 14:03:32 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:39:58 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat( void ) : Name("test"), Grade(5) {
+Bureaucrat::Bureaucrat( void ) : Name("Default"), Grade(5) {
 	return ;	
 }
 
-Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag) {
+Bureaucrat::Bureaucrat( std::string const &tag, int nbr ) : Name(tag) {
 	if (nbr < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (nbr > 150)
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat( const std::string &tag, int nbr ) : Name(tag) {
 	return ;	
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat &obj ) {
+Bureaucrat::Bureaucrat( Bureaucrat const &obj ) {
 	*this = obj;
 	return ;	
 }
@@ -38,7 +38,7 @@ Bureaucrat::~Bureaucrat( void ) {
 	return ;	
 }
 
-int Bureaucrat::getGrade( void ) {
+int Bureaucrat::getGrade( void ) const {
 	return (this->Grade);
 }
 
@@ -65,8 +65,13 @@ Bureaucrat &Bureaucrat::operator=( Bureaucrat const &instance) {
 	return (*this);
 }
 
-std::ostream &operator<<( std::ostream &output, Bureaucrat *obj ) {
-	output << obj->getName() << ", bureaucrat grade " << obj->getGrade() << std::endl;
+std::ostream &operator<<( std::ostream &output, Bureaucrat const &obj ) {
+	output << "\033[30m" << obj.getName() << "\033[0m, bureaucrat grade \033[34m" << obj.getGrade() << "\033[0m" << std::endl;
+	return (output);
+}
+
+std::ostream &operator<<( std::ostream &output, Bureaucrat const *obj ) {
+	output << "\033[30m" << obj->getName() << "\033[0m, bureaucrat grade \033[34m" << obj->getGrade() << "\033[0m" << std::endl;
 	return (output);
 }
 
@@ -87,21 +92,22 @@ Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw() {
 }
 
 const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return ("The Grade is too low !");
+	return ("The Grade is too low!");
 }
 
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("The Grade is too high !");
+	return ("The Grade is too high!");
 }
 
 void	Bureaucrat::signForm( Form &obj ) {
-	obj.beSigned(*this);
-	if (obj.getSign())
-		std::cout << this->Name << " signed " << obj.getName() << std::endl;
-	else
+	try
 	{
-		std::cout << this->Name << " couldn’t sign "<< obj.getName() << " because ";
-		std::cout << "the grade was to low" << std::endl;
+		obj.beSigned(*this);
+		std::cout << "\033[30m" << this->Name << " \033[32msigned \033[35m" << obj.getName() << "\033[0m" << std::endl;
+	}
+	catch(Form::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 	return ;
 }

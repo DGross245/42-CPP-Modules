@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:52 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:54 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/23 08:27:21 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class AForm;
 class Intern {
 
 public:
+
 	Intern( void );
 	~Intern( void );
 	Intern( Intern const &obj);
@@ -29,6 +30,15 @@ public:
 	AForm *allocPardonForm( std::string Target );
 	AForm *allocCreationForm( std::string Target );
 	AForm *allocRequestForm( std::string Target );
+	class FormDoesntExistException: public std::exception {
+
+	public:
+
+		FormDoesntExistException( void );
+		~FormDoesntExistException( void ) throw();
+		virtual const char* what() const throw();
+	
+	};
 private:
 
 };

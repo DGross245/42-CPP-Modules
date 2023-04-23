@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
+#    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 10:16:03 by dgross            #+#    #+#              #
-#    Updated: 2023/03/16 10:32:43 by dgross           ###   ########.fr        #
+#    Updated: 2023/04/18 23:54:00 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Bureaucrat
+NAME			= Form
 
 VPATH			= include:
 

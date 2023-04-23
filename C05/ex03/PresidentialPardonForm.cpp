@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:52:59 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 19:57:03 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/22 09:11:39 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 }
 
 void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
-	if (this->getGradeExec() <= executor.getGrade())
+	if (this->getSign() == true)
 	{
-		if (this->getSign() == true)
-			std::cout << this->getTarget() << " has been pardoned by Zahod Beebllebrox" << std::endl;
+		if (executor.getGrade() > this->getGradeExec())
+			throw AForm::GradeTooLowException( executor.getName(), this->getName(), 1 );
 		else
-			std::cout << "Form wasnt signed !" << std::endl;
+			std::cout << this->getTarget() << " has been pardoned by Zahod Beebllebrox" << std::endl;
 	}
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw AForm::NotSigned();
 	return ;
 }
 

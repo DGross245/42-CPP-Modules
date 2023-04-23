@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:43 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:32 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:41:08 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
 
@@ -24,7 +23,7 @@ public:
 
 	Bureaucrat( void );
 	Bureaucrat( Bureaucrat const &obj);
-	Bureaucrat( const std::string &tag, int nbr);
+	Bureaucrat( std::string const &tag, int nbr);
 	~Bureaucrat( void );
 	Bureaucrat &operator=( Bureaucrat const &obj );
 	std::string getName( void ) const;
@@ -35,17 +34,23 @@ public:
 	void signForm( AForm &obj);
 
 	class GradeTooLowException : public std::exception {
+
 	public:
+
 		GradeTooLowException( void );
 		~GradeTooLowException( void ) throw();
 		virtual const char* what() const throw();
+	
 	};
 
 	class GradeTooHighException : public std::exception {
+
 	public:
+
 		GradeTooHighException( void );
 		~GradeTooHighException( void ) throw();
 		virtual const char* what() const throw();
+
 	};
 
 private:
@@ -54,6 +59,7 @@ private:
 	int					Grade;
 };
 
-std::ostream &operator<<( std::ostream &output, Bureaucrat *obj );
+std::ostream &operator<<( std::ostream &output, Bureaucrat const &obj );
+std::ostream &operator<<( std::ostream &output, Bureaucrat const *obj );
 
 #endif

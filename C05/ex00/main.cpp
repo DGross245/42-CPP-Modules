@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:49 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/17 17:18:30 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/18 23:49:30 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int main(void)
 {
+	std::cout << "#####\033[32mTESTING BUREAUCRAT\033[0m#####" << std::endl;
 	{
 		Bureaucrat *A = new Bureaucrat();
 
-		std::cout << A;
+		std::cout << "\n" << A;
 
 		try
 		{
@@ -31,7 +32,7 @@ int main(void)
 			std::cerr << "\033[31m" << e.what() << "\033[0m" << std::endl;
 		}
 		std::cout << "\033[32mResult = " << A << "\033[0m" <<std::endl;
-		std::cout << "\n--------------------------------------------\n" << std::endl;
+		std::cout << "--------------------------------------------\n" << std::endl;
 		std::cout << A;
 
 		try
@@ -80,7 +81,7 @@ int main(void)
 		delete A;
 	}
 	{
-		std::cout << "\n-----------------------------------------------\n";
+		std::cout << "-----------------------------------------------\n";
 		std::cout << "\033[34mCreating Kevin with a grade of 151...\033[0m" << std::endl;
 		try
 		{
@@ -100,7 +101,7 @@ int main(void)
 		{
 			std::cerr << "\033[31m" << e.what() << "\033[0m\n" << std::endl;
 		}
-		
+		std::cout << "#######\033[31mTEST END\033[0m#######" << std::endl;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:02 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 19:57:14 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/22 09:11:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,21 @@ std::string	RobotomyRequestForm::getTarget( void ) const{
 }
 
 void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
-	if (this->getGradeExec() >= executor.getGrade())
+	if (this->getSign() == true)
 	{
-		if (this->getSign() == true)
+		if (executor.getGrade() > this->getGradeExec())
+			throw AForm::GradeTooLowException( executor.getName(), this->getName(), 1 );
+		else
 		{
 			std::cout << "Drrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr....." << std::endl;
 			std::time_t time = std::time(NULL);
 			if (time % 2 == 0)
 				std::cout << this->getTarget() << " has been robotomized successfully " << std::endl;
 			else
-				std::cout << this->getTarget() << " has failed !";
+				std::cout << this->getTarget() << " has failed !" << std::endl;
 		}
-		else
-			std::cout << "Form wasnt signed !" << std::endl;
 	}
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw AForm::NotSigned();
 	return ;
 }

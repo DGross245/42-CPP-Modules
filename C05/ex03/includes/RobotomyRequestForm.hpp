@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:48 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:35:00 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:41:44 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef ROBOTOMYREQUESTFORM_H 
 # define ROBOTOMYREQUESTFORM_H
 
@@ -20,6 +19,7 @@
 class RobotomyRequestForm : public AForm {
 
 public:
+
 	RobotomyRequestForm( void );
 	RobotomyRequestForm( std::string Target );
 	~RobotomyRequestForm( void );
@@ -27,8 +27,11 @@ public:
 	std::string	getTarget( void ) const;
 	RobotomyRequestForm &operator=( RobotomyRequestForm const &obj );
 	virtual void execute( Bureaucrat const & executor ) const;
+
 private:
+
 	std::string Target;
+
 };
 
 #endif

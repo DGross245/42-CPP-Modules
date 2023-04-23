@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:05 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 19:56:29 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/22 09:11:49 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 }
 
 void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
-	if (this->getGradeExec() <= executor.getGrade())
+	if (this->getSign() == true)
 	{
-		if (this->getSign() == true)
+		if (executor.getGrade() > this->getGradeExec())
+			throw AForm::GradeTooLowException( executor.getName(), this->getName(), 1 );
+		else
 		{
 			std::fstream outfile;
 			std::string outfileName = Target + "_shrubbery";
-			outfile.open( outfileName.c_str(), std::fstream::in );
+			outfile.open( outfileName.c_str(), std::fstream::out );
 			if (outfile.is_open())
 			{
 				outfile << "       _-_       \n"
@@ -57,17 +59,15 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 						<< "   ~  \\ //  ~   \n"
 						<< "_- -   | | _- _  \n"
 						<< "  _ -  | |   -_  \n"
-						<<  "     // \\        " << std::endl;
+						<< "______// \\ _____" << std::endl;
 				outfile.close();
 			}
 			else
-				std::cout << " Error : count not open outfile !" << std::endl;
+				std::cerr << " Error : count not open outfile !" << std::endl;
 		}
-		else
-			std::cout << " Form wasnt signed !" << std::endl;
 	}
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw AForm::NotSigned();
 	return ;
 }
 

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
+#    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 14:50:52 by dgross            #+#    #+#              #
-#    Updated: 2023/03/17 15:17:25 by dgross           ###   ########.fr        #
+#    Updated: 2023/04/22 19:21:37 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Bureaucrat
+NAME			= Intern
 
 VPATH			= include:
 
@@ -35,7 +35,7 @@ OBJ				= $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 

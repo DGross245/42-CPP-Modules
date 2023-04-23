@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 10:33:08 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/17 17:56:43 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:40:27 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main(void)
 {
 	{
-		std::cout << "/////////TESTING CREATION LIMITS/////////" << std::endl;
-		std::cout << "-------------GradeExec-------------------\n" << std::endl;
+		std::cout << "/////////\033[32mTESTING CREATION LIMITS\033[0m/////////" << std::endl;
+		std::cout << "----------------\033[37mGradeExec\033[0m-------------------\n" << std::endl;
 		std::cout << "\033[34mCreating Form with a too low GradeExec...\033[0m" << std::endl;
 		try
 		{
@@ -38,7 +38,7 @@ int main(void)
 		{
 			std::cerr << "\033[31m" << e.what() << "\033[0m\n" << std::endl;
 		}
-		std::cout << "-------------GradeSign-------------------\n" << std::endl;
+		std::cout << "----------------\033[37mGradeSign\033[0m-------------------\n" << std::endl;
 		std::cout << "\n\033[34mCreating Form with a too low GradeSign...\033[0m" << std::endl;
 		try
 		{
@@ -60,19 +60,38 @@ int main(void)
 		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << std::endl;
 	}
 	{
-		std::cout << "           TESTING SIGN FUNCTIONS\n" << std::endl;
+		std::cout << "           \033[37mTESTING SIGN FUNCTIONS\033[0m\n" << std::endl;
 		Form Form1;// ("Default-Form", 8, 9)
 		Form Form2("Master-Form", 24, 60);
-		Bureaucrat B("Bur", 100);
-		Bureaucrat C("Me", 8);
+		Bureaucrat A("AyAyron", 8);
+		Bureaucrat B("Balakay", 100);
+		Bureaucrat D("Deee-Nice", 60);
+		std::cout << Form1 << std::endl;
+		std::cout << Form2 << std::endl;
+		std::cout << A << std::endl;
+		std::cout << B << std::endl;
+		std::cout << D << std::endl;
+	
 		try
 		{
-			C.signForm(Form1);
+			A.signForm(Form1);
+			A.signForm(Form2);
+			B.signForm(Form1); // should fail
 		}
-		catch(Form::GradeTooLowException& e)
+		catch(Form::GradeTooLowException &e)
 		{
 			std::cerr << "\033[31m" << e.what() << "\033[0m\n" << std::endl;
 		}
+		try
+		{
+			std::cout << "\n\033[34mtrying to sign Form2 but Grade is too low for GradeSign\033[0m" << std::endl;
+			D.signForm(Form2);
+		}
+		catch(Form::GradeTooLowException &e)
+		{
+			std::cerr << "\033[31m" << e.what() << "\033[0m\n" << std::endl;
+		}	
 	}
+	std::cout << std::endl;
 	return 0;
 }

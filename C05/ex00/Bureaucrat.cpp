@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 08:39:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 11:10:44 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/20 13:23:37 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat( void ) : Name("test"), Grade(5) {
+Bureaucrat::Bureaucrat( void ) : Name("Default"), Grade(5) {
 	return ;	
 }
 

@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:01:50 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 13:35:05 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:41:54 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef SHRUBBERYCREATIONFORM_H
 # define SHRUBBERYCREATIONFORM_H
 
@@ -20,6 +19,7 @@
 class ShrubberyCreationForm : public AForm {
 
 public:
+
 	ShrubberyCreationForm( void );
 	~ShrubberyCreationForm( void );
 	ShrubberyCreationForm( ShrubberyCreationForm const &obj);
@@ -27,8 +27,11 @@ public:
 	ShrubberyCreationForm( std::string Target );
 	virtual void execute( Bureaucrat const & executor ) const;
 	std::string	getTarget( void ) const;
+
 private:
+
 	std::string Target;
+
 };
 
 #endif

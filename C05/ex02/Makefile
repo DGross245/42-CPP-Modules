@@ -6,11 +6,11 @@
 #    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 14:50:52 by dgross            #+#    #+#              #
-#    Updated: 2023/03/17 09:17:48 by dna              ###   ########.fr        #
+#    Updated: 2023/04/22 09:12:07 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Bureaucrat
+NAME			= AForm
 
 VPATH			= include:
 
@@ -33,7 +33,7 @@ OBJ				= $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 
