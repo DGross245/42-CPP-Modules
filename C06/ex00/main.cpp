@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:08:20 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/24 22:13:34 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/26 12:59:24 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main (int argc, char **argv) {
 		std::cout << "Error : to many arguments" << std::endl;
 		return (1);
 	}
-	ScalarConverter::convert(argv[1]);
+	if (ScalarConverter::convert(argv[1]))
+		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:51 by dna               #+#    #+#             */
-/*   Updated: 2023/04/26 10:53:23 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/26 13:33:53 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ ScalarConverter::~ScalarConverter( void ) {
 	return ;
 }
 
-void ScalarConverter::convert( std::string input) {
+int ScalarConverter::convert( std::string input) {
 	if (checkInput(input))
+	{
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible" << std::endl;
+		return (1);
+	}
 	else if (input.length() == 1 && !isdigit(input[0])) {
 		char Char = static_cast<char>(input[0]);
 		printChar( Char) ;
@@ -57,7 +60,8 @@ void ScalarConverter::convert( std::string input) {
 	}
 	std::size_t pos = input.find_first_not_of("+-.f0123456789");
 	std::size_t unique = input.find_first_of(".");
-	if ( pos == std::string::npos && input.find_first_of("f") == input.length() - 1 && unique != input.length() - 2 && unique != std::string::npos && unique > 0) {
+	std::size_t check = input.find_first_of(".", unique + 1);
+	if ( pos == std::string::npos && input.find_first_of("f") == input.length() - 1 && unique != input.length() - 2 && unique != std::string::npos && unique > 0 && check == std::string::npos ) {
 		float Float = static_cast<float>(strtof(input.c_str(), NULL));
 		if (Float < 0 || Float > 127)
 			std::cout << "char: impossible" << std::endl;
@@ -67,7 +71,8 @@ void ScalarConverter::convert( std::string input) {
 		printFloat( Float );
 		printDouble( static_cast<double>( Float) );
 	}
-	else if (input.find_first_not_of("+-.0123456") == std::string::npos && unique != std::string::npos && unique != input.length() - 1 && unique > 0) {
+	pos = input.find_first_not_of("+-.f0123456789");
+	if (pos == std::string::npos && check == std::string::npos && isdigit(input[input.length() - 1]) && unique != std::string::npos && unique != input.length() - 1 && unique > 0 ) {
 		double Double = static_cast<double>(strtod(input.c_str(), NULL));
 		if (Double < 0 || Double > 127)
 			std::cout << "char: impossible" << std::endl;
@@ -77,7 +82,12 @@ void ScalarConverter::convert( std::string input) {
 		printFloat( static_cast<float>( Double ) );
 		printDouble( Double );
 	}
-	return ;
+	else
+	{
+		std::cerr << "Wrong input" << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 int ScalarConverter::checkInput( std::string input ) {
@@ -108,8 +118,8 @@ int ScalarConverter::checkInput( std::string input ) {
 			return (0);
 		}
 	}
-	if (atoi(input.c_str()) == 0)
-		return (1);
+	//if (atoi(input.c_str()) == 0)
+	//	return (1);
 	return (0);
 }
 
