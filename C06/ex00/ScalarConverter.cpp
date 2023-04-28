@@ -3,44 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:51 by dna               #+#    #+#             */
-/*   Updated: 2023/04/26 13:33:53 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/28 12:04:34 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 #include <string>
-#include <cstdlib>
+#include <sstream>
 #include <iostream>
 #include <iomanip>
-#include <climits>
-#include <float.h>
 #include <cmath>
-#include <cerrno>
-#include <limits>
 
-ScalarConverter::ScalarConverter( void ) {
-	return ;
-}
-
-ScalarConverter::ScalarConverter( std::string input ) {
-	convert(input);
-	return ;
-}
-
-ScalarConverter::~ScalarConverter( void ) {
-	return ;
-}
 
 int ScalarConverter::convert( std::string input) {
-	if (checkInput(input))
+	int special = checkInput(input);
+
+	if (special == 1)
 	{
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible" << std::endl;
 		return (1);
 	}
+	else if (special == 2)
+		return (0);
 	else if (input.length() == 1 && !isdigit(input[0])) {
 		char Char = static_cast<char>(input[0]);
 		printChar( Char) ;
@@ -48,8 +36,16 @@ int ScalarConverter::convert( std::string input) {
 		printFloat( static_cast<float>(Char));
 		printDouble( static_cast<double>(Char));
 	}
-	else if (input.find_first_not_of("+-0123456789") == std::string::npos) {
+	else if (input.find_first_not_of("+-0123456789") == std::string::npos && signCheck(input)) {
 		int Integer = static_cast<int>( strtod(input.c_str(), NULL) );
+		int OverflowCheck;
+		std::stringstream ss(input);
+		ss >> OverflowCheck;
+		if (ss.fail() || !ss.eof())
+		{
+			std::cerr << "Overflow !" << std::endl;
+			return (1);
+		}
 		if (Integer < 0 || Integer > 127)
 			std::cout << "char: impossible" << std::endl;
 		else
@@ -58,10 +54,7 @@ int ScalarConverter::convert( std::string input) {
 		printFloat( static_cast<float>( Integer ) );
 		printDouble( static_cast<double>( Integer ));
 	}
-	std::size_t pos = input.find_first_not_of("+-.f0123456789");
-	std::size_t unique = input.find_first_of(".");
-	std::size_t check = input.find_first_of(".", unique + 1);
-	if ( pos == std::string::npos && input.find_first_of("f") == input.length() - 1 && unique != input.length() - 2 && unique != std::string::npos && unique > 0 && check == std::string::npos ) {
+	else if (input.find_first_not_of("+-.f0123456789") == std::string::npos && input.find_first_of("f") == input.length() - 1 && isdigit(input[input.length() - 2]) && dotCheck(input) && signCheck(input))  {
 		float Float = static_cast<float>(strtof(input.c_str(), NULL));
 		if (Float < 0 || Float > 127)
 			std::cout << "char: impossible" << std::endl;
@@ -71,8 +64,7 @@ int ScalarConverter::convert( std::string input) {
 		printFloat( Float );
 		printDouble( static_cast<double>( Float) );
 	}
-	pos = input.find_first_not_of("+-.f0123456789");
-	if (pos == std::string::npos && check == std::string::npos && isdigit(input[input.length() - 1]) && unique != std::string::npos && unique != input.length() - 1 && unique > 0 ) {
+	else if (input.find_first_not_of("+-.0123456789") == std::string::npos && isdigit(input[input.length() - 1]) && dotCheck(input) && signCheck(input)) {
 		double Double = static_cast<double>(strtod(input.c_str(), NULL));
 		if (Double < 0 || Double > 127)
 			std::cout << "char: impossible" << std::endl;
@@ -90,6 +82,36 @@ int ScalarConverter::convert( std::string input) {
 	return (0);
 }
 
+int ScalarConverter::signCheck( std::string input ) {
+	int		i = -1;
+
+	if (input[++i] == '+' || input[i] == '-' ) {
+		if (!isdigit(input[++i]))
+			return (0);
+	}
+	else 
+	{
+		if (!isdigit(input[i]))
+			return (0);	
+	}
+	for (; input[i]; i++) {
+		if (input[i] == '+' || input[i] == '-') {
+				return (0);
+		}
+	}
+	return (1);
+}
+
+int ScalarConverter::dotCheck( std::string input ) {
+	if (input.find('.') == std::string::npos)
+		return (0);
+	else if (input.find('.') != input.rfind('.'))
+		return (0);
+	else if (input[0] != '.' && isdigit(input[input.find('.') + 1]))
+		return (1);
+	return (0);
+}
+
 int ScalarConverter::checkInput( std::string input ) {
 	std::string nanComp[2] = { "nan", "nanf" };
 	std::string infComp[6] = { "-inf", "-inff", "+inf", "+inff", "inf", "inff" };
@@ -103,7 +125,7 @@ int ScalarConverter::checkInput( std::string input ) {
 					  << "int: impossible" << std::endl
 					  << "float: nanf" << std::endl
 					  << "double: nan" << std::endl;
-			return (0);
+			return (2);
 		}
 	}
 	i = -1;
@@ -115,11 +137,9 @@ int ScalarConverter::checkInput( std::string input ) {
 					  << "int: impossible" << std::endl;
 			printFloat(static_cast<float>(strtof(input.c_str(), NULL)));
 			printDouble(static_cast<double>(strtod(input.c_str(), NULL)));
-			return (0);
+			return (2);
 		}
 	}
-	//if (atoi(input.c_str()) == 0)
-	//	return (1);
 	return (0);
 }
 
@@ -133,7 +153,6 @@ void ScalarConverter::printChar( char Char ) {
 }
 
 void ScalarConverter::printInt( int Integer ) {
-	
 	std::cout << "int: " << Integer << std::endl;
 	return ;
 }
@@ -163,4 +182,12 @@ ScalarConverter &ScalarConverter::operator=( ScalarConverter const &instance) {
 	if (this == &instance)
 		return (*this);
 	return (*this);
+}
+
+ScalarConverter::ScalarConverter( void ) {
+	return ;
+}
+
+ScalarConverter::~ScalarConverter( void ) {
+	return ;
 }

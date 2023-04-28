@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 17:13:17 by dna               #+#    #+#             */
-/*   Updated: 2023/04/17 15:45:11 by dgross           ###   ########.fr       */
+/*   Updated: 2023/04/28 11:36:31 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,20 @@ class Data {
 
 public:
 
+	Data( void );
 	~Data( void );
 	Data( Data const &obj );
 	Data &operator=( Data const &obj );
-	static std::string getInfo( void );
+	std::string getInfo( void ) const;
 	Data( std::string input );
 	
 private:
 
-	Data( void );
 	std::string Information;
 
 };
+
+std::ostream &operator<<( std::ostream &output, Data const &obj );
+std::ostream &operator<<( std::ostream &output, Data const *obj );
 
 #endif

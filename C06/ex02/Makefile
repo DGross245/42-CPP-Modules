@@ -6,7 +6,7 @@
 #    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 16:08:32 by dgross            #+#    #+#              #
-#    Updated: 2023/04/16 22:50:28 by dna              ###   ########.fr        #
+#    Updated: 2023/04/28 12:19:10 by dna              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ				= $(addprefix $(OBJ_DIR),$(SRC:.cpp=.o))
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
