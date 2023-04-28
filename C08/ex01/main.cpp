@@ -6,11 +6,22 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:09:27 by dna               #+#    #+#             */
-/*   Updated: 2023/04/17 01:14:37 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/28 18:23:05 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Span.hpp"
+#include <iostream>
+
 int main(void)
 {
+	try
+	{
+		Span	kek(6);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return (0);
 }
