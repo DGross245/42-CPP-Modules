@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 17:53:59 by dna               #+#    #+#             */
-/*   Updated: 2023/04/28 12:17:08 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/29 10:19:54 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,31 @@ void identify(Base *p) {
 	return ;
 }
 
-void identify(Base &p) {
-    if (dynamic_cast<A *>(&p) != NULL)
-		std::cout << "The derived class is A!" << std::endl;
-	else if (dynamic_cast<B *>(&p) != NULL)
-		std::cout << "The derived class is B!" << std::endl;
-	else if (dynamic_cast<C *>(&p) != NULL)
-		std::cout << "The derived class is C!" << std::endl;
+void identify(Base &p) {	
+	try
+	{
+		(void)dynamic_cast<A&>(p);
+		std::cout << "Type: A" << std::endl;
+	}
+	catch ( const std::exception& e)
+	{
+		try
+		{
+			(void)dynamic_cast<B&>(p);
+			std::cout << "Type: B" << std::endl;
+		}
+		catch ( const std::exception& e)
+		{
+			try
+			{
+				(void)dynamic_cast<C&>(p);
+				std::cout << "Type: C" << std::endl;
+			}
+			catch ( const std::exception& e)
+			{
+				std::cerr << "its nothing!" << std::endl;
+			}
+		}
+	}
 	return ;
 }
