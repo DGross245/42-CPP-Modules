@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:01 by dna               #+#    #+#             */
-/*   Updated: 2023/04/28 18:49:22 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/30 13:53:50 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <vector>
 #include <algorithm>
+#include <climits>
+#include <cstdlib>
+#include <iostream>
 
 Span::Span( void ) : _N(2) {
 	return ;
@@ -33,6 +36,7 @@ Span::~Span( void ) {
 
 Span &Span::operator=( Span const &instance ) {
 	this->_N = instance._N;
+	this->_container = instance._container;
 	return (*this);
 }
 
@@ -43,8 +47,21 @@ void Span::addNumber( unsigned int nbr ) {
 	return ;
 }
 
+void Span::addNumbers( std::vector<int>::iterator start, std::vector<int>::iterator end) {
+	std::size_t Size = this->getContainer().size();
+
+	if (Size == this->getN())
+		throw ContainerFullException();
+	if (Size + (end - start) > this->getN())
+		throw RangeTooBigException();
+	this->getContainer().insert(this->getContainer().begin(), start, end);
+	return ;
+}
+
 int Span::shortestSpan( void ) {
 	std::size_t Size = this->getContainer().size();
+	int shortest = 0;
+
 	if (Size == 0)
 		throw ContainerEmptyException();
 	else if (Size == 1)
@@ -53,8 +70,16 @@ int Span::shortestSpan( void ) {
 	{
 		std::vector<int> sorted = this->getContainer();
 		std::sort(sorted.begin(), sorted.end());
-		
-		return (3);
+		std::vector<int>::iterator cur = sorted.begin();
+		std::vector<int>::iterator next = cur + 1;
+		std::vector<int>::iterator End = sorted.end();
+
+		for (shortest = *next - *cur; next != End; cur++, next++) {
+			if (*next - *cur < shortest ) {
+				shortest = *next - *cur;
+			}
+		}
+		return (shortest);
 	}
 }
 
@@ -83,3 +108,4 @@ std::vector<int> &Span::getContainer( void ) {
 const char *Span::ContainerFullException::what() const throw() { return ("Container is too Full!");}
 const char *Span::ContainerEmptyException::what() const throw() { return ("Container is Empty!");}
 const char *Span::TooFewElementsException::what() const throw() { return ("Container need more Elements!");}
+const char *Span::RangeTooBigException::what() const throw() { return ("Range is too big for the Container!");}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:06 by dna               #+#    #+#             */
-/*   Updated: 2023/04/28 18:44:36 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/30 13:52:41 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 
 	
 	void addNumber( unsigned int nbr );
+	void addNumbers( std::vector<int>::iterator Start, std::vector<int>::iterator End);
 	int shortestSpan( void );
 	int longestSpan( void );
 
@@ -43,12 +44,16 @@ public:
 		public:
 			virtual const char *what() const throw();
 	};
+	class RangeTooBigException : public std::exception {
+		public:
+			virtual const char *what() const throw();
+	};
 	
 private:
 
+	std::vector<int> &getContainer( void );
 	Span( void );
 	unsigned int getN( void );
-	std::vector<int> &getContainer( void );
 
 	std::vector<int> _container;
 	unsigned int _N;
