@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dna <dna@student.42.fr>                    +#+  +:+       +#+         #
+#    By: dgross <dgross@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/16 13:10:18 by dna               #+#    #+#              #
-#    Updated: 2023/04/16 23:45:02 by dna              ###   ########.fr        #
+#    Updated: 2023/05/01 13:37:37 by dgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= BitcoinExchange
+NAME			= btc
 
 SRC				= main.cpp\
 				  BitcoinExchange.cpp
