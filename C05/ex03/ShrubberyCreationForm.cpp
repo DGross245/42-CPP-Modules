@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:53:05 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/22 09:11:49 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/02 15:52:36 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 				outfile.close();
 			}
 			else
-				std::cerr << " Error : count not open outfile !" << std::endl;
+				std::cerr << " Error : can not open outfile !" << std::endl;
 		}
 	}
 	else
