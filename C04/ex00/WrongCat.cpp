@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:23:19 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:21:50 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 16:38:32 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ WrongCat::WrongCat( void ) {
 	std::cout << "WrongCat's default constructor called" << std::endl;
 	return ;
 }
-WrongCat::WrongCat( const WrongCat &obj ) {
+WrongCat::WrongCat( const WrongCat &obj ) : WrongAnimal(obj){
 	*this = obj;
 	std::cout << "WrongCat's copy constructor called" << std::endl;
 	return ;

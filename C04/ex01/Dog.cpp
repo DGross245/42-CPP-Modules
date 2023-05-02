@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:58 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 10:35:23 by dna              ###   ########.fr       */
+/*   Updated: 2023/04/15 16:56:18 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ Dog::Dog( void ) {
 	std::cout << "Dog's default constructor called" << std::endl;
 	return ;
 }
-Dog::Dog( const Dog &obj ) {
+
+Dog::Dog( const Dog &obj ) : Animal(obj) {
+	this->brain = NULL;
 	*this = obj;
 	std::cout << "Dog's copy constructor called" << std::endl;
 	return ;
@@ -39,7 +41,8 @@ void	Dog::makeSound( void ) const{
 
 Dog &Dog::operator=( Dog const &instance) {
 	this->type = instance.type;
-	delete this->brain;
+	if (this->brain)
+		delete brain;
 	this->brain = new Brain(*instance.brain);
 	std::cout << "Dog's copy assignment operator called" << std::endl;
 	return (*this);
