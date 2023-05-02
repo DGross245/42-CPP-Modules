@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:16:55 by dgross            #+#    #+#             */
-/*   Updated: 2023/03/27 10:39:25 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:51:29 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 private:
 
 	Contact contact[8];
-	int		aktive;
+	int		active;
 
 };
 
