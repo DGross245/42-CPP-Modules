@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/03 22:58:17 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/04 15:39:10 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
-#include <regex>
 #include <limits.h>
 
 BitcoinExchange::BitcoinExchange( void ) {
@@ -65,9 +64,9 @@ void BitcoinExchange::setExchangerate( std::string Date, float Rate ) {
 float BitcoinExchange::checkNumber( std::string Number ) {
 	float check;
 
-	if (Number.find_first_of("-") != std::string::npos)
-		throw InvalidNumberException(0);	
-	else if (Number.find_first_not_of("+-0123456789") == std::string::npos && signCheck(Number)) {
+	if (Number.find_first_not_of("+-0123456789") == std::string::npos && signCheck(Number)) {
+		if (Number.find_first_of("-") != std::string::npos)
+			throw InvalidNumberException(0);	
 		check = strtof(Number.c_str(), NULL);
 		if (check > 1000)
 			throw InvalidNumberException(1);	
@@ -83,17 +82,44 @@ float BitcoinExchange::checkNumber( std::string Number ) {
 }
 
 std::string BitcoinExchange::checkDate( std::string Date ) {
-	std::regex dateRegex( "\\d{4}-\\d{2}-\\d{2}" );
-	if (std::regex_match(Date, dateRegex))
-		return (Date);
-	throw InvalidDateException();
+	std::istringstream	ss(Date);
+	int					Year, Month, Day;
+	char				minus;
+
+	std::cout << Date << "s" << std::endl;
+	if (Date.find_first_not_of("-0123456789") != std::string::npos )
+		throw InvalidDateException("Error: bad input => " + Date );
+	if (std::count(Date.begin(), Date.end(), '-') != 2)
+		throw InvalidDateException("Error: bad input => " + Date );
+	if (ss >> Year >> minus && minus == '-' &&
+		ss >> Month >> minus && minus == '-' &&
+		ss >> Day ) 
+	{
+		if (Day > 31 || Month > 12 || Month < 1 || Day < 1 || Year < 1)
+			throw InvalidDateException("Error: bad input => " + Date);
+		else if (Month == 2)
+		{
+			if (((Year % 400 != 0 && Year % 100 == 0) || Year % 4 == 0) && Day > 28)
+				throw InvalidDateException("Error: bad input => " + Date);
+			else if (Day > 29)
+				throw InvalidDateException("Error: bad input => " + Date);
+		}
+		else if ((Year == 2 || Year == 4 || Year == 6 || Year == 8 || Year == 10 ||
+				 Year == 12) && Day == 31)
+			throw InvalidDateException("Error: bad input => " + Date);
+		else
+			return (Date);
+	}
+	else
+		throw InvalidDateException("Error: bad input => " + Date);
+	return (NULL);
 }
 
 int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 	std::fstream	inputFile;
 	std::string		line,date,exchangerate;
 
-	inputFile.open( Exchangerate, std::fstream::in );
+	inputFile.open( Exchangerate.c_str(), std::fstream::in );
 	if (inputFile.is_open())
 	{
 		getline( inputFile, line );
@@ -102,7 +128,7 @@ int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 			std::stringstream ss(line);
 			getline(ss, date, ',');
 			getline(ss, exchangerate, ',');
-			setExchangerate(checkDate(date), strtof(exchangerate.c_str(), NULL));
+			setExchangerate(date, strtof(exchangerate.c_str(), NULL));
 		}
 		inputFile.close();
 	}
@@ -117,7 +143,7 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 	float			value;
 	float			rate;
 
-	inputFile.open( Financials, std::fstream::in );
+	inputFile.open( Financials.c_str(), std::fstream::in );
 	if (inputFile.is_open())
 	{
 		getline( inputFile, line );
@@ -129,6 +155,7 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 			getline(ss >> std::ws, number, '|');
 			try
 			{
+				checkDate(date);
 				value = checkNumber(number);
 				if (this->getExchangerate().find(date) == this->getExchangerate().end()) {
 					it = this->getExchangerate().lower_bound(date);
@@ -193,6 +220,8 @@ BitcoinExchange::InvalidNumberException::InvalidNumberException( int i) {
 	return ;	
 }
 
+BitcoinExchange::InvalidDateException::InvalidDateException( std::string Error ) : _error(Error) { return ; }
 BitcoinExchange::InvalidNumberException::~InvalidNumberException( void ) throw() { return ;	}
-const char *BitcoinExchange::InvalidDateException::what() const throw() { return ("Wrong or missing Date!");}
+BitcoinExchange::InvalidDateException::~InvalidDateException( void ) throw() { return ;	}
+const char *BitcoinExchange::InvalidDateException::what() const throw() { return (this->_error.c_str());}
 const char *BitcoinExchange::InvalidNumberException::what() const throw() { return (this->_error.c_str());}

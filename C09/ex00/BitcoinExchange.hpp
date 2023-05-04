@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:15 by dna               #+#    #+#             */
-/*   Updated: 2023/05/03 22:41:38 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/04 15:02:04 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,13 @@ public:
 
 	public:
 
+		InvalidDateException( std::string Error );
+		~InvalidDateException( void ) throw();
 		virtual const char* what() const throw();
+	
+	private:
 
+		std::string _error;
 	};
 
 private:
