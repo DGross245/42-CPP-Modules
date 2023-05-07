@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/04 15:39:10 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/07 07:23:03 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ float BitcoinExchange::checkNumber( std::string Number ) {
 	}
 	else if (Number.find_first_not_of("+-.0123456789") == std::string::npos && dotCheck(Number) && signCheck(Number)) {
 		check = strtof(Number.c_str(), NULL);
-		if (check > 1000)
-			throw InvalidNumberException(1);	
 		return(check);
 	}
 	throw InvalidNumberException(2);
@@ -86,7 +84,6 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 	int					Year, Month, Day;
 	char				minus;
 
-	std::cout << Date << "s" << std::endl;
 	if (Date.find_first_not_of("-0123456789") != std::string::npos )
 		throw InvalidDateException("Error: bad input => " + Date );
 	if (std::count(Date.begin(), Date.end(), '-') != 2)
@@ -99,7 +96,7 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 			throw InvalidDateException("Error: bad input => " + Date);
 		else if (Month == 2)
 		{
-			if (((Year % 400 != 0 && Year % 100 == 0) || Year % 4 == 0) && Day > 28)
+			if ((Year % 400 != 0 || (Year % 100 != 0 && Year % 4 == 0)) && Day > 28)
 				throw InvalidDateException("Error: bad input => " + Date);
 			else if (Day > 29)
 				throw InvalidDateException("Error: bad input => " + Date);
@@ -112,7 +109,7 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 	}
 	else
 		throw InvalidDateException("Error: bad input => " + Date);
-	return (NULL);
+	return (Date);
 }
 
 int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
@@ -153,17 +150,13 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 			std::stringstream ss(line);
 			getline(ss >> std::ws, date, '|');
 			getline(ss >> std::ws, number, '|');
+			date.erase(remove_if(date.begin(), date.end(), ::isspace), date.end());
 			try
 			{
 				checkDate(date);
 				value = checkNumber(number);
-				if (this->getExchangerate().find(date) == this->getExchangerate().end()) {
-					it = this->getExchangerate().lower_bound(date);
-					if (it != this->getExchangerate().end())
-						rate = this->getExchangerate()[it->first];
-					else
-						rate = this->getExchangerate()[date];
-				}
+				if (this->getExchangerate().find(date) == this->getExchangerate().end())
+					rate = Lower_Bound(date);
 				else
 					rate = this->getExchangerate()[date];
 				std::cout << date << " => " << value << " = " << (value * rate) << std::endl;
@@ -178,6 +171,23 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 	else
 		std::cout << "Date|value file doesnt exist" << std::endl;
 	return (0);
+}
+
+float BitcoinExchange::Lower_Bound( std::string date ) {
+	std::map<std::string, float>::const_iterator it;
+	float rate;
+
+	it = this->getExchangerate().lower_bound(date);
+	if (it != this->getExchangerate().end())
+	{
+		if (it == this->getExchangerate().begin())
+			throw InvalidDateException("Error: bad input => " + date);
+		--it;
+		rate = this->getExchangerate()[it->first];
+	}
+	else
+		rate = this->getExchangerate()[date];
+	return (rate);
 }
 
 int BitcoinExchange::signCheck( std::string input ) {
