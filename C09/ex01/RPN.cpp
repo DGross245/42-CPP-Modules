@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:24 by dna               #+#    #+#             */
-/*   Updated: 2023/05/07 18:07:54 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/08 08:41:24 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,11 @@ void	RPN::calculator( std::string rpn ) {
 			if (rpn[i] == ' ')
 				continue;
 			else
-				throw InvalidExpressionException("Error: invalid expression : space missing!");
+				throw InvalidExpressionException("Error: invalid expression");
 		}
 		if (isdigit(rpn[i])) {
-			if (rpn[ ++i ] == ' ') {
-				Stack.push(rpn[i - 1] - '0');
-			}
-			else 
-				throw InvalidExpressionException("Error: invalid expression : space missing!");
-			continue;			
+			if (rpn[ ++i ] == ' ')
+				Stack.push(rpn[i - 1] - '0');	
 		}
 		else if (Stack.size() >= 2) {
 			right = Stack.top();
