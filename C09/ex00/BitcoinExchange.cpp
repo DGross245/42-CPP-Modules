@@ -6,7 +6,7 @@
 /*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/07 07:23:03 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/16 10:02:13 by dna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ BitcoinExchange::BitcoinExchange( void ) {
 }
 
 BitcoinExchange::BitcoinExchange( std::string Exchangerate, std::string Financials ) : std::map<std::string, float>() {
-	checkExchangerate(Exchangerate);
+	if (checkExchangerate(Exchangerate))
+		return ;
 	checkFinancials(Financials);
 	return ;
 }
@@ -120,6 +121,10 @@ int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 	if (inputFile.is_open())
 	{
 		getline( inputFile, line );
+		if (line != "date,exchange_rate") {
+			std::cerr << "Error: Missing column headers in CSV file";
+			return (1);
+		}
 		while(getline( inputFile, line ))
 		{
 			std::stringstream ss(line);
@@ -144,6 +149,10 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 	if (inputFile.is_open())
 	{
 		getline( inputFile, line );
+		if (line != "date | value") {
+			std::cerr << "Error: Missing column headers in input file";
+			return (1);
+		}
 		while(getline( inputFile, line ))
 		{
 			std::map<std::string, float>::const_iterator it;
