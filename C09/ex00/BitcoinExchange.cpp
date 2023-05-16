@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/16 10:02:13 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/16 13:24:14 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,15 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 			throw InvalidDateException("Error: bad input => " + Date);
 		else if (Month == 2)
 		{
-			if ((Year % 400 != 0 || (Year % 100 != 0 && Year % 4 == 0)) && Day > 28)
-				throw InvalidDateException("Error: bad input => " + Date);
-			else if (Day > 29)
+			if (Year % 400 == 0 || (Year % 100 != 0 && Year % 4 == 0)) {
+				if (Day > 29)
+					throw InvalidDateException("Error: bad input => " + Date);
+			}
+			else if (Day > 28)
 				throw InvalidDateException("Error: bad input => " + Date);
 		}
-		else if ((Year == 2 || Year == 4 || Year == 6 || Year == 8 || Year == 10 ||
-				 Year == 12) && Day == 31)
+		else if ((Month == 4 || Month == 6 || Month == 9 ||
+				 Month == 11) && Day >= 31)
 			throw InvalidDateException("Error: bad input => " + Date);
 		else
 			return (Date);
@@ -116,6 +118,7 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 	std::fstream	inputFile;
 	std::string		line,date,exchangerate;
+	//float			value;
 
 	inputFile.open( Exchangerate.c_str(), std::fstream::in );
 	if (inputFile.is_open())
@@ -130,7 +133,17 @@ int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 			std::stringstream ss(line);
 			getline(ss, date, ',');
 			getline(ss, exchangerate, ',');
-			setExchangerate(date, strtof(exchangerate.c_str(), NULL));
+			try
+			{
+				checkDate(date);
+				//value = checkNumber(exchangerate);
+				setExchangerate(date,  strtof(exchangerate.c_str(), NULL));
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+				return (1);
+			}
 		}
 		inputFile.close();
 	}
