@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:15 by dna               #+#    #+#             */
-/*   Updated: 2023/05/16 13:08:31 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/17 13:40:06 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
 	int								checkExchangerate( std::string Exchangerate );
 	int								checkFinancials( std::string Financials );
 	float							checkNumber( std::string Name );
+	float							checkdataNumber( std::string Name );
 	std::string						checkDate( std::string Date );
 	int								signCheck( std::string input );
 	int								dotCheck( std::string input );

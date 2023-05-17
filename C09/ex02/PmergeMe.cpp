@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:33 by dna               #+#    #+#             */
-/*   Updated: 2023/05/11 13:56:36 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/17 16:04:05 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
+#include <iomanip>
 
 PmergeMe::PmergeMe( void ) {
 	return ;
@@ -57,19 +58,19 @@ void PmergeMe::Sort( int size, char **Numbers ) {
 	Start = clock();
 	res_lis = SortList( List );
 	End = clock();
-    double time = static_cast<double>(End - Start) / CLOCKS_PER_SEC * 1000;
+    double time = static_cast<double>(End - Start) / CLOCKS_PER_SEC * 100000;
 	std::cout << "After: ";
 	for (std::list<int>::iterator it = res_lis.begin(); it != res_lis.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
-	std::cout << "Time to process range of " << List.size() << " elements with std::list : " << time << std::endl;
+	std::cout << "Time to process range of " << List.size() << " elements with std::list : "  << time << " us" << std::endl;
 	
 	Start = clock();
 	res_vec = SortVector( Vector );
 	End = clock();
 	
-    time = static_cast<double>(End - Start) / CLOCKS_PER_SEC * 1000;
-	std::cout << "Time to process range of " << Vector.size() << " elements with std::vector : " << time << std::endl;
+    time = static_cast<double>(End - Start) / CLOCKS_PER_SEC * 100000;
+	std::cout << "Time to process range of " << Vector.size() << " elements with std::vector : " << time << " us" << std::endl;
 	return ;
 
 }
@@ -96,7 +97,7 @@ std::list<int> PmergeMe::SortList( std::list<int> &List ) {
 			result.push_back(*itA);
 			itA++;
 		}
-		else if (*itB < *itA)
+		else
 		{
 			result.push_back(*itB);
 			itB++;
@@ -129,7 +130,7 @@ std::vector<int> PmergeMe::SortVector( std::vector<int> &Vector ) {
 			result.push_back(*itA);
 			itA++;
 		}
-		else if (*itB < *itA)
+		else
 		{
 			result.push_back(*itB);
 			itB++;

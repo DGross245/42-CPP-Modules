@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:24 by dna               #+#    #+#             */
-/*   Updated: 2023/05/09 09:53:25 by dna              ###   ########.fr       */
+/*   Updated: 2023/05/17 13:51:08 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ void	RPN::calculator( std::string rpn ) {
 			Stack.push(left + right);
 		else if (rpn[i] == '-')
 			Stack.push(left - right);
-		else if (rpn[i] == '/')
-			Stack.push(left / right);
+		else if (rpn[i] == '/') {
+			if (right == 0)
+				throw InvalidExpressionException("Error: can't divide by 0!");
+			Stack.push(left / right);	
+		}
 		else if (rpn[i] == '*')
 			Stack.push(left * right);
 	}

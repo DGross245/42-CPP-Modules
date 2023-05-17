@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/16 13:24:14 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/17 13:44:10 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,22 @@ float BitcoinExchange::checkNumber( std::string Number ) {
 	throw InvalidNumberException(2);
 }
 
+float BitcoinExchange::checkdataNumber( std::string Number ) {
+	float check;
+
+	if (Number.find_first_not_of("+-0123456789") == std::string::npos && signCheck(Number)) {
+		if (Number.find_first_of("-") != std::string::npos)
+			throw InvalidNumberException(0);	
+		check = strtof(Number.c_str(), NULL);
+		return(check);
+	}
+	else if (Number.find_first_not_of("+-.0123456789") == std::string::npos && dotCheck(Number) && signCheck(Number)) {
+		check = strtof(Number.c_str(), NULL);
+		return(check);
+	}
+	throw InvalidNumberException(2);
+}
+
 std::string BitcoinExchange::checkDate( std::string Date ) {
 	std::istringstream	ss(Date);
 	int					Year, Month, Day;
@@ -118,7 +134,7 @@ std::string BitcoinExchange::checkDate( std::string Date ) {
 int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 	std::fstream	inputFile;
 	std::string		line,date,exchangerate;
-	//float			value;
+	float			value;
 
 	inputFile.open( Exchangerate.c_str(), std::fstream::in );
 	if (inputFile.is_open())
@@ -136,8 +152,8 @@ int BitcoinExchange::checkExchangerate( std::string Exchangerate ) {
 			try
 			{
 				checkDate(date);
-				//value = checkNumber(exchangerate);
-				setExchangerate(date,  strtof(exchangerate.c_str(), NULL));
+				value = checkdataNumber(exchangerate);
+				setExchangerate(date, value);
 			}
 			catch(const std::exception& e)
 			{
