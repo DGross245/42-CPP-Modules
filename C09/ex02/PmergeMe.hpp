@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:35 by dna               #+#    #+#             */
-/*   Updated: 2023/05/17 13:53:46 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/18 17:24:43 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ public:
 	static int				checkinput( std::string Numbers );
 	static std::vector<int>	SortVector( std::vector<int> &Vector );
 	static std::list<int>	SortList( std::list<int> &List );
+	static std::vector<int>	InsertsortVector( std::vector<int> &Vector );
+	static std::list<int>	InsertsortList( std::list<int> &List );
 	
 	class InvalidInputException : public std::exception {
 
