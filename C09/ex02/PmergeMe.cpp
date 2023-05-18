@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:33 by dna               #+#    #+#             */
-/*   Updated: 2023/05/18 17:54:55 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/18 18:33:04 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
-#include <limits>
+#include <climits>
 
 PmergeMe::PmergeMe( void ) {
 	return ;
