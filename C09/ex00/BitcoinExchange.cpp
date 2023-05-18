@@ -6,7 +6,7 @@
 /*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:10:13 by dna               #+#    #+#             */
-/*   Updated: 2023/05/18 18:11:51 by dgross           ###   ########.fr       */
+/*   Updated: 2023/05/18 23:05:47 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,10 +180,8 @@ int BitcoinExchange::checkFinancials( std::string Financials ) {
 	if (inputFile.is_open())
 	{
 		getline( inputFile, line );
-		if (line != "date | value") {
+		if (line != "date | value")
 			std::cerr << "Error: Missing column headers in input file";
-			return (1);
-		}
 		while(getline( inputFile, line ))
 		{
 			std::map<std::string, float>::const_iterator it;
