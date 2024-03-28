@@ -1,6 +1,6 @@
 # CPP Module 02
 
-Welcome to Module 01 of the CPP Modules! This module serves as an introduction to C++ programming language basics.
+Welcome to Module 02 of the CPP Modules! This module serves as an introduction to C++ programming language basics.
 
 ## Topics Covered
 - Ad-hoc polymorphism
