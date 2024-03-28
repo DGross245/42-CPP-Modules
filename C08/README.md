@@ -19,6 +19,7 @@ Welcome to Module 08 of the CPP Modules! This module serves as an introduction t
 
 - **Exercise 01: Span**
   - Description: The Span class stores a maximum of N integers and provides functions to add a single number, calculate the shortest span, and the longest span between all stored numbers. It also supports adding multiple numbers at once using iterators.
+  - Usage:
     ```bash
     cd ex01
     make
@@ -27,6 +28,7 @@ Welcome to Module 08 of the CPP Modules! This module serves as an introduction t
 
 - **Exercise 02: Mutated abomination**
   - Description: The MutantStack class extends the functionality of std::stack by adding iterators.
+  - Usage:
     ```bash
     cd ex02
     make
