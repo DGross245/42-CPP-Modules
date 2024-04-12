@@ -4,7 +4,7 @@ This repository is a collection of all CPP modules from C00 to C09 at 42. Each m
 
 ## Introduction
 
-Welcome to the CPP Modules Hub! Here, you'll find a my solutions for each module and my progress of learning basic cpp.
+Welcome to the CPP Modules Hub! Here, you'll find my solutions for each module and my progress in learning basic cpp.
 
 ## Modules
 
