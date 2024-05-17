@@ -16,7 +16,7 @@ Welcome to Module 07 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 01: Iter**
-  - Description: a template that executes a function on every index of the given array.
+  - Description: A template that executes a function on every index of the given array.
   - Usage:
     ```bash
     cd ex01
