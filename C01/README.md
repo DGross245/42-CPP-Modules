@@ -46,7 +46,7 @@ Welcome to Module 01 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 04: Sed is for losers**
-  - Description: this function gets a input file and two string, replacing every occurrence of string_1 with string_2.
+  - Description: This function gets a input file and two string, replacing every occurrence of string_1 with string_2.
   - Usage:
     ```bash
     cd ex04
