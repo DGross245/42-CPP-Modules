@@ -7,7 +7,7 @@ Welcome to Module 03 of the CPP Modules! This module serves as an introduction t
 
 ## Exercises
 - **Exercise 00: Aaaaand... OPEN!**
-  - Description: the program creating a robot with options to attack, take damage and repair it self. Simulating a fight between robots.
+  - Description: The program creating a robot with options to attack, take damage and repair it self. Simulating a fight between robots.
   - Usage:
     ```bash
     cd ex00
@@ -16,7 +16,7 @@ Welcome to Module 03 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 01: Serena, my love!**
-  - Description: creates a derived robot ScavTrap that inherit the constructors and destructor from ClapTrap but printing another attack message then ClapTrap.
+  - Description: Creates a derived robot ScavTrap that inherit the constructors and destructor from ClapTrap but printing another attack message then ClapTrap.
     ```bash
     cd ex01
     make
@@ -24,7 +24,7 @@ Welcome to Module 03 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 02: Repetitive work**
-  - Description: this program implement a new robot called FragTrap that inherits from ClapTrap like ScavTrap, but prints a different construction and destruction messages.
+  - Description: This program implement a new robot called FragTrap that inherits from ClapTrap like ScavTrap, but prints a different construction and destruction messages.
   - Usage:
     ```bash
     cd ex02
