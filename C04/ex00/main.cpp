@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:09:51 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:10:25 by dna              ###   ########.fr       */
+/*   Updated: 2024/05/17 23:12:21 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int main()
 {
-
 	const Animal *meta = new Animal();
 	
 	std::cout << meta->getType() << " " << std::endl;

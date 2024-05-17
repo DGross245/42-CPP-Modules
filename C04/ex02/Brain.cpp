@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:17:45 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/15 01:09:35 by dna              ###   ########.fr       */
+/*   Updated: 2024/05/17 23:13:49 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Brain::Brain( void ) {
 	std::cout << "Brain's default constructor called" << std::endl;
 	return ;
 }
+
 Brain::Brain( const Brain &obj ) {
 	*this = obj;
 	std::cout << "Brain's copy constructor called" << std::endl;

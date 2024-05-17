@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dna <dna@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dgross <dgross@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 06:22:38 by dgross            #+#    #+#             */
-/*   Updated: 2023/04/10 17:51:39 by dna              ###   ########.fr       */
+/*   Updated: 2024/05/17 23:13:46 by dgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Animal::Animal( void ) : type( "Animal" ) {
 	std::cout << "Animal's default constructor called" << std::endl;
 	return ;
 }
+
 Animal::Animal( const Animal &obj ) {
 	*this = obj;
 	std::cout << "Animal's copy constructor called" << std::endl;
