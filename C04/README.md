@@ -9,7 +9,7 @@ Welcome to Module 04 of the CPP Modules! This module serves as an introduction t
 
 ## Exercises
 - **Exercise 00: Polymorphism**
-  - Description: It creates 3 classes Dog and Cat that inherts from the Animal class, printing different sounds when printing makeSound().
+  - Description: it creates 3 classes Dog and Cat that inherts from the Animal class, printing different sounds when printing makeSound().
   - Usage:
     ```bash
     cd ex00
@@ -18,7 +18,7 @@ Welcome to Module 04 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 01: I don’t want to set the world on fire**
-  - Description: Enhances the previous exercise by adding a brain class, testing correct allocation, deletion and coping behavior.
+  - Description: enhances the previous exercise by adding a brain class, testing correct allocation, deletion and coping behavior.
   - Usage:
     ```bash
     cd ex01
@@ -27,7 +27,7 @@ Welcome to Module 04 of the CPP Modules! This module serves as an introduction t
     ```
 
 - **Exercise 02: Abstract class**
-  - Description: Changes the Animal class so nobody can instantiate it.
+  - Description: changes the Animal class so nobody can instantiate it.
   - Usage:
     ```bash
     cd ex02
